@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"lib/analytics.ts -> posthog-js\":{\"id\":\"lib/analytics.ts -> posthog-js\",\"files\":[\"static/chunks/_app-pages-browser_node_modules_posthog-js_dist_module_js.js\"]}}"

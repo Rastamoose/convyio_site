@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://plurall.example.com/sitemap.xml
