@@ -1,8 +1,8 @@
 function Avatar({ hue }: { hue: 'sand' | 'moss' | 'clay' }) {
   const hues = {
-    sand: 'bg-gradient-to-br from-gruv-fg/25 to-gruv-fg/5',
-    moss: 'bg-gradient-to-br from-gruv-aqua/30 to-gruv-aqua/5',
-    clay: 'bg-gradient-to-br from-gruv-orange/30 to-gruv-orange/5',
+    sand: 'bg-gruv-fg-dark',
+    moss: 'bg-gruv-aqua',
+    clay: 'bg-gruv-orange',
   };
   return (
     <div className={`h-7 w-7 flex-shrink-0 rounded-full ${hues[hue]}`} aria-hidden="true" />
@@ -11,7 +11,7 @@ function Avatar({ hue }: { hue: 'sand' | 'moss' | 'clay' }) {
 
 function AgentBadge() {
   return (
-    <span className="rounded-full border border-gruv-accent/40 bg-gruv-accent/10 px-1.5 py-px text-[10px] font-medium text-gruv-accent">
+    <span className="rounded-full border border-gruv-border px-1.5 py-px text-[10px] font-medium text-gruv-fg-muted">
       agent
     </span>
   );
@@ -19,8 +19,8 @@ function AgentBadge() {
 
 export function HeroVisual() {
   return (
-    <div className="dark w-full overflow-hidden rounded-2xl border border-gruv-border/70 bg-gruv-bg shadow-frame">
-      <div className="flex items-center gap-2 border-b border-gruv-border/60 px-4 py-2.5">
+    <div className="dark w-full overflow-hidden rounded-2xl border border-gruv-border bg-gruv-bg shadow-frame">
+      <div className="flex items-center gap-2 border-b border-gruv-border px-4 py-2.5">
         <span className="flex gap-1.5" aria-hidden="true">
           <span className="h-2.5 w-2.5 rounded-full bg-gruv-bg-hover" />
           <span className="h-2.5 w-2.5 rounded-full bg-gruv-bg-hover" />
@@ -46,16 +46,16 @@ export function HeroVisual() {
           <Avatar hue="clay" />
           <div className="flex-1">
             <div className="flex items-baseline gap-2">
-              <span className="font-medium text-gruv-accent">noodle</span>
+              <span className="font-medium text-gruv-fg">noodle</span>
               <AgentBadge />
               <span className="font-mono text-[10px] text-gruv-fg-muted">09:12</span>
             </div>
-            <div className="mt-1.5 rounded-xl border border-gruv-border/60 bg-gruv-bg-hard/60 p-3">
+            <div className="mt-1.5 rounded-xl border border-gruv-border bg-gruv-bg-soft p-3">
               <div className="flex items-center gap-2 text-gruv-green">
                 <span className="h-1.5 w-1.5 animate-pulse-slow rounded-full bg-gruv-green" />
                 <span className="text-xs font-medium">Working</span>
               </div>
-              <div className="mt-2 space-y-1 border-l border-gruv-border/60 pl-3 text-gruv-fg-muted">
+              <div className="mt-2 space-y-1 border-l border-gruv-border pl-3 text-gruv-fg-muted">
                 <p>Read 12 messages</p>
                 <p>Drafted 3 hero options</p>
               </div>

@@ -14,7 +14,7 @@ function renderH1(text: string, phrase: string) {
       <span className="relative inline-block">
         <span
           aria-hidden="true"
-          className="absolute -inset-x-1 bottom-[0.04em] h-[0.38em] -rotate-1 rounded-sm bg-gruv-accent/40"
+          className="absolute -inset-x-1 bottom-[0.04em] h-[0.38em] -rotate-1 rounded-sm bg-gruv-accent"
         />
         <span className="relative">{phrase}</span>
       </span>
@@ -46,10 +46,6 @@ export function Hero({ variant = 'problem-aware' }: HeroProps) {
       <VariantTag variant={variant} />
       <div className="mx-auto max-w-5xl">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <span className="mb-6 inline-flex animate-fade-up items-center gap-2 rounded-full border border-gruv-border/60 bg-gruv-bg px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-gruv-accent-deep">
-            <span className="h-1.5 w-1.5 rounded-full bg-gruv-accent" aria-hidden="true" />
-            {COPY.productName}
-          </span>
           <h1 className="mb-6 text-4xl font-semibold leading-[1.08] tracking-[-0.03em] text-gruv-fg sm:text-5xl lg:text-6xl">
             {renderH1(h1, highlight)}
           </h1>

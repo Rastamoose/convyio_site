@@ -43,7 +43,7 @@ export function ProductBeat({
       </div>
       <div
         className={cn(
-          "dark relative aspect-[16/10] overflow-hidden rounded-2xl border border-gruv-border/70 bg-gruv-bg shadow-frame transition-colors duration-300 hover:border-gruv-border",
+          "dark relative aspect-[16/10] overflow-hidden rounded-2xl border border-gruv-border bg-gruv-bg shadow-frame transition-colors duration-300 hover:border-gruv-fg-dark",
           reversed ? "lg:col-start-1" : "",
         )}
       >

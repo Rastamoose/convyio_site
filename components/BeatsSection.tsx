@@ -20,9 +20,6 @@ export function BeatsSection() {
             reversed={index % 2 === 1}
           />
         ))}
-        <p className="mx-auto max-w-xl rounded-full border border-gruv-border/40 bg-gruv-bg/60 px-6 py-3 text-center text-sm leading-relaxed text-gruv-fg-muted">
-          {COPY.reassurance}
-        </p>
       </div>
     </section>
   );

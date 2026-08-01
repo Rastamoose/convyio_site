@@ -93,13 +93,13 @@ export function DemoSlot() {
       className="bg-gruv-bg-soft px-4 py-20 sm:px-6 sm:py-24 lg:px-8"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="dark relative h-[480px] overflow-hidden rounded-2xl border border-gruv-border/70 bg-gruv-bg shadow-frame sm:h-[560px]">
+        <div className="dark relative h-[480px] overflow-hidden rounded-2xl border border-gruv-border bg-gruv-bg shadow-frame sm:h-[560px]">
           <DemoChat />
 
           {/* Play affordance */}
           <button
             onClick={() => setOpen(true)}
-            className="group absolute inset-0 flex items-center justify-center bg-gradient-to-b from-gruv-bg-hard/20 to-gruv-bg-hard/60 transition-colors hover:from-gruv-bg-hard/10 hover:to-gruv-bg-hard/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-gruv-accent"
+            className="group absolute inset-0 flex items-center justify-center bg-gruv-bg-hard/40 transition-colors hover:bg-gruv-bg-hard/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-gruv-accent"
             aria-label={COPY.demo.playLabel}
           >
             <span className="flex h-14 w-14 items-center justify-center rounded-full bg-gruv-accent text-gruv-bg-hard shadow-[0_3px_0_0_rgb(var(--gruv-accent-deep)),var(--shadow-glow)] transition-all group-hover:scale-105 group-active:translate-y-[3px] group-active:shadow-[0_0_0_0_rgb(var(--gruv-accent-deep)),var(--shadow-glow)]">
@@ -129,7 +129,7 @@ export function DemoSlot() {
         >
           <div
             ref={dialogRef}
-            className="dark relative h-[85vh] w-full max-w-5xl overflow-hidden rounded-2xl border border-gruv-border/70 bg-gruv-bg p-4 pt-12 shadow-frame"
+            className="dark relative h-[85vh] w-full max-w-5xl overflow-hidden rounded-2xl border border-gruv-border bg-gruv-bg p-4 pt-12 shadow-frame"
             onClick={(e) => e.stopPropagation()}
           >
             <button

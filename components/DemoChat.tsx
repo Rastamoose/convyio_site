@@ -3,19 +3,16 @@
 import { ReactNode, useEffect, useRef, useState } from 'react';
 
 const AVATAR_HUES: Record<string, string> = {
-  alex: 'from-gruv-accent/40 to-gruv-accent/10',
-  blair: 'from-gruv-aqua/40 to-gruv-aqua/10',
-  harris: 'from-gruv-purple/40 to-gruv-purple/10',
-  noodle: 'from-gruv-green/40 to-gruv-green/10',
+  alex: 'bg-gruv-accent',
+  blair: 'bg-gruv-aqua',
+  harris: 'bg-gruv-purple',
+  noodle: 'bg-gruv-green',
 };
 
 function Avatar({ name }: { name?: string }) {
-  const hue = (name && AVATAR_HUES[name]) || 'from-gruv-fg/20 to-gruv-fg/5';
+  const hue = (name && AVATAR_HUES[name]) || 'bg-gruv-fg-dark';
   return (
-    <div
-      className={`h-7 w-7 flex-shrink-0 rounded-full bg-gradient-to-br ${hue}`}
-      aria-hidden="true"
-    />
+    <div className={`h-7 w-7 flex-shrink-0 rounded-full ${hue}`} aria-hidden="true" />
   );
 }
 
@@ -35,9 +32,9 @@ function Message({
       <Avatar name={name} />
       <div className="flex-1">
         <div className="flex items-baseline gap-2">
-          <span className={`font-medium ${agent ? 'text-gruv-accent' : 'text-gruv-fg'}`}>{name}</span>
+          <span className="font-medium text-gruv-fg">{name}</span>
           {agent && (
-            <span className="rounded-full border border-gruv-accent/40 bg-gruv-accent/10 px-1.5 py-px text-[10px] font-medium text-gruv-accent">
+            <span className="rounded-full border border-gruv-border px-1.5 py-px text-[10px] font-medium text-gruv-fg-muted">
               agent
             </span>
           )}
@@ -52,7 +49,7 @@ function Message({
 function TypingIndicator() {
   return (
     <div className="flex gap-3" aria-hidden="true">
-      <div className="h-7 w-7 flex-shrink-0 rounded-full bg-gradient-to-br from-gruv-fg/10 to-gruv-fg/5" />
+      <div className="h-7 w-7 flex-shrink-0 rounded-full bg-gruv-fg-dark" />
       <span className="flex items-center gap-1 pt-2">
         <span className="h-1.5 w-1.5 animate-pulse-slow rounded-full bg-gruv-fg-muted" />
         <span className="h-1.5 w-1.5 animate-pulse-slow rounded-full bg-gruv-fg-muted [animation-delay:300ms]" />
@@ -100,7 +97,7 @@ const MESSAGES: DemoMessage[] = [
     time: '09:16',
     agent: true,
     body: (
-      <div className="rounded-xl border border-gruv-border/60 bg-gruv-bg-hard/60 p-3">
+      <div className="rounded-xl border border-gruv-border bg-gruv-bg-soft p-3">
         <div className="flex items-center gap-2 text-gruv-green">
           <span className="h-1.5 w-1.5 animate-pulse-slow rounded-full bg-gruv-green" />
           <span className="text-xs font-medium">Working</span>
@@ -133,7 +130,7 @@ const MESSAGES: DemoMessage[] = [
     time: '09:18',
     agent: true,
     body: (
-      <div className="rounded-xl border border-gruv-border/60 bg-gruv-bg-hard/60 p-3">
+      <div className="rounded-xl border border-gruv-border bg-gruv-bg-soft p-3">
         <p className="text-gruv-fg">Revised hero:</p>
         <p className="mt-1 text-gruv-fg-muted">One space for your team and its agents.</p>
       </div>
@@ -149,7 +146,7 @@ const MESSAGES: DemoMessage[] = [
     time: '09:19',
     agent: true,
     body: (
-      <div className="rounded-xl border border-gruv-border/60 bg-gruv-bg-hard/60 p-3">
+      <div className="rounded-xl border border-gruv-border bg-gruv-bg-soft p-3">
         <p className="text-gruv-fg">Hero: One space for your team and its agents.</p>
         <p className="text-gruv-fg">One-liner: The shared room for your people and your agents.</p>
       </div>
@@ -209,14 +206,14 @@ export function DemoChat({ animate = false }: { animate?: boolean }) {
   return (
     <div className="flex h-full flex-col md:flex-row">
       {/* Sidebar */}
-      <div className="hidden w-14 flex-col items-center gap-3 border-r border-gruv-border/60 bg-gruv-bg-hard/60 py-4 md:flex">
+      <div className="hidden w-14 flex-col items-center gap-3 border-r border-gruv-border bg-gruv-bg-soft py-4 md:flex">
         <Avatar name="alex" />
         <Avatar name="blair" />
         <Avatar name="harris" />
         <Avatar name="noodle" />
       </div>
       <div className="flex flex-1 flex-col">
-        <div className="flex items-center gap-2 border-b border-gruv-border/60 px-4 py-3 text-[13px]">
+        <div className="flex items-center gap-2 border-b border-gruv-border px-4 py-3 text-[13px]">
           <span className="text-gruv-fg-muted">#</span>
           <span className="font-medium text-gruv-fg">general</span>
         </div>
