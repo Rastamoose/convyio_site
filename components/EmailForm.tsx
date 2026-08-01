@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, useRef, FormEvent } from 'react';
 import { COPY } from '@/lib/copy';
 import { ANALYTICS_EVENTS } from '@/lib/posthog';
 import { cn } from '@/lib/utils';
 import { capture } from '@/lib/analytics';
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/meeywyjy';
+const FORMSPREE_ENDPOINT =
+  process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/meeywyjy';
 
 interface EmailFormProps {
   location: 'hero' | 'closing';
@@ -17,6 +18,13 @@ export function EmailForm({ location, className }: EmailFormProps) {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const hasFiredFocus = useRef(false);
+
+  function handleFocus() {
+    if (hasFiredFocus.current) return;
+    hasFiredFocus.current = true;
+    capture(ANALYTICS_EVENTS.EMAIL_FORM_FOCUSED, { location });
+  }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -95,7 +103,8 @@ export function EmailForm({ location, className }: EmailFormProps) {
           placeholder={COPY.form.placeholder}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="input-inset flex-1 px-5 py-2.5 text-sm text-gruv-fg placeholder:text-gruv-fg-muted"
+          onFocus={handleFocus}
+          className="input-inset w-full min-w-0 flex-1 px-5 py-2.5 text-sm text-gruv-fg placeholder:text-gruv-fg-muted sm:w-56"
           aria-invalid={status === 'error'}
           aria-describedby={status === 'error' ? `email-error-${location}` : undefined}
         />
@@ -111,7 +120,7 @@ export function EmailForm({ location, className }: EmailFormProps) {
         <button
           type="submit"
           disabled={status === 'submitting'}
-          className="btn-3d whitespace-nowrap px-5 py-2.5 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-gruv-accent/50"
+          className="btn-3d whitespace-nowrap px-5 py-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gruv-accent/50"
         >
           {status === 'submitting' ? (
             <span className="flex items-center gap-2">

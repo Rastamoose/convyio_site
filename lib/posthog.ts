@@ -8,18 +8,10 @@ export const ANALYTICS_EVENTS = {
   DEMO_PLAYED: 'demo_played',
   DEMO_COMPLETED: 'demo_completed',
   EMAIL_SUBMITTED: 'email_submitted',
+  EMAIL_FORM_FOCUSED: 'email_form_focused',
+  CTA_CLICKED: 'cta_clicked',
 } as const;
 
-export function getUtmParams(): Record<string, string> {
-  if (typeof window === 'undefined') return {};
-  const params = new URLSearchParams(window.location.search);
-  const utm: Record<string, string> = {};
-  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach((key) => {
-    const value = params.get(key);
-    if (value) utm[key] = value;
-  });
-  return utm;
-}
 
 export function getReferrer(): string {
   if (typeof window === 'undefined') return '';

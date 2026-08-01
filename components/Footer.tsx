@@ -8,7 +8,7 @@ export function Footer() {
           {COPY.productName}
           <span className="text-gruv-accent">.</span>
         </span>
-        <p className="text-[13px] text-gruv-fg-muted">{COPY.footer}</p>
+        <p className="font-mono text-xs text-gruv-fg-muted">{COPY.footer}</p>
       </div>
     </footer>
   );

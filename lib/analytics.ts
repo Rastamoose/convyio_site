@@ -2,6 +2,7 @@ import { ANALYTICS_EVENTS, POSTHOG_KEY, POSTHOG_HOST } from './posthog';
 
 let posthogInstance: typeof import('posthog-js').default | null = null;
 let queue: Array<{ event: string; props?: Record<string, unknown> }> = [];
+let pendingSuperProperties: Record<string, unknown> | null = null;
 let initPromise: Promise<void> | null = null;
 
 export async function initPostHog(): Promise<void> {
@@ -20,11 +21,27 @@ export async function initPostHog(): Promise<void> {
     });
     posthogInstance = posthog;
 
+    if (pendingSuperProperties) {
+      posthog.register(pendingSuperProperties);
+      pendingSuperProperties = null;
+    }
     queue.forEach((item) => posthog.capture(item.event, item.props));
     queue = [];
   })();
 
   return initPromise;
+}
+
+export function registerSuperProperties(props: Record<string, unknown>): void {
+  if (posthogInstance) {
+    posthogInstance.register(props);
+    return;
+  }
+
+  pendingSuperProperties = { ...pendingSuperProperties, ...props };
+  initPostHog().catch(() => {
+    // Silently fail if PostHog cannot load
+  });
 }
 
 export function capture(event: string, props?: Record<string, unknown>): void {

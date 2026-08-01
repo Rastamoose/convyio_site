@@ -36,7 +36,7 @@ export const COPY = {
   reassurance:
     'Keep the agents you already run — Claude Code, Codex, Kimi, and others. Nothing to self-host, no relay to operate.',
   closing: {
-    lead: 'Every company is about to need a place where its people and its agents work together.',
+    lead: 'Your team and its agents, in the same room.',
     support: "We're building the version where the team can actually see what its agents are doing.",
   },
   footer: '© 2026 convyio',

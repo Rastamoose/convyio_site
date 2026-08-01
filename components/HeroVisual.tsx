@@ -19,7 +19,7 @@ function AgentBadge() {
 
 export function HeroVisual() {
   return (
-    <div className="w-full overflow-hidden rounded-2xl border border-gruv-border/70 bg-gruv-bg shadow-frame">
+    <div className="dark w-full overflow-hidden rounded-2xl border border-gruv-border/70 bg-gruv-bg shadow-frame">
       <div className="flex items-center gap-2 border-b border-gruv-border/60 px-4 py-2.5">
         <span className="flex gap-1.5" aria-hidden="true">
           <span className="h-2.5 w-2.5 rounded-full bg-gruv-bg-hover" />
@@ -35,7 +35,7 @@ export function HeroVisual() {
           <div className="flex-1">
             <div className="flex items-baseline gap-2">
               <span className="font-medium text-gruv-fg">alex</span>
-              <span className="text-[11px] text-gruv-fg-muted">09:12</span>
+              <span className="font-mono text-[10px] text-gruv-fg-muted">09:12</span>
             </div>
             <p className="mt-0.5 text-gruv-fg-body">
               @noodle read the thread above and draft 3 options for the hero line.
@@ -48,7 +48,7 @@ export function HeroVisual() {
             <div className="flex items-baseline gap-2">
               <span className="font-medium text-gruv-accent">noodle</span>
               <AgentBadge />
-              <span className="text-[11px] text-gruv-fg-muted">09:12</span>
+              <span className="font-mono text-[10px] text-gruv-fg-muted">09:12</span>
             </div>
             <div className="mt-1.5 rounded-xl border border-gruv-border/60 bg-gruv-bg-hard/60 p-3">
               <div className="flex items-center gap-2 text-gruv-green">
@@ -68,7 +68,7 @@ export function HeroVisual() {
           <div className="flex-1">
             <div className="flex items-baseline gap-2">
               <span className="font-medium text-gruv-fg">blair</span>
-              <span className="text-[11px] text-gruv-fg-muted">09:14</span>
+              <span className="font-mono text-[10px] text-gruv-fg-muted">09:14</span>
             </div>
             <p className="mt-0.5 text-gruv-fg-body">option 2 is closest. make it punchier.</p>
           </div>

@@ -2,7 +2,7 @@ export function VisualBoard() {
   return (
     <div className="flex h-full w-full gap-3 bg-gruv-bg p-4 text-[13px] leading-relaxed">
       <div className="flex flex-1 flex-col gap-2 rounded-xl border border-gruv-border/60 bg-gruv-bg-hard/60 p-3">
-        <div className="mb-1 flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wider text-gruv-fg-muted">
+        <div className="mb-1 flex items-center gap-1.5 font-mono text-[10px] font-medium uppercase tracking-wider text-gruv-fg-muted">
           <span className="h-1.5 w-1.5 rounded-full bg-gruv-accent" aria-hidden="true" />
           Proposed
         </div>
@@ -12,7 +12,7 @@ export function VisualBoard() {
         </div>
       </div>
       <div className="flex flex-1 flex-col gap-2 rounded-xl border border-gruv-border/60 bg-gruv-bg-hard/60 p-3">
-        <div className="mb-1 flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wider text-gruv-fg-muted">
+        <div className="mb-1 flex items-center gap-1.5 font-mono text-[10px] font-medium uppercase tracking-wider text-gruv-fg-muted">
           <span className="h-1.5 w-1.5 rounded-full bg-gruv-green" aria-hidden="true" />
           Approved
         </div>
@@ -22,7 +22,7 @@ export function VisualBoard() {
         </div>
       </div>
       <div className="hidden flex-1 flex-col gap-2 rounded-xl border border-gruv-border/60 bg-gruv-bg-hard/60 p-3 sm:flex">
-        <div className="mb-1 flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wider text-gruv-fg-muted">
+        <div className="mb-1 flex items-center gap-1.5 font-mono text-[10px] font-medium uppercase tracking-wider text-gruv-fg-muted">
           <span className="h-1.5 w-1.5 rounded-full bg-gruv-fg-dark" aria-hidden="true" />
           Done
         </div>

@@ -11,7 +11,7 @@ export function ClosingBlock() {
       />
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 -z-10 h-64 bg-[radial-gradient(ellipse_50%_100%_at_50%_100%,rgba(250,189,47,0.07),transparent_70%)]"
+        className="absolute inset-x-0 bottom-0 -z-10 h-64 bg-[radial-gradient(ellipse_50%_100%_at_50%_100%,rgb(var(--gruv-accent)/0.08),transparent_70%)]"
       />
       <div className="mx-auto max-w-2xl text-center">
         <Reveal>

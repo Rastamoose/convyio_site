@@ -1,4 +1,4 @@
-// File: /home/harris/Programming/Plurall/site/app/layout.tsx
+// File: /home/harris/Programming/convyio/site/app/layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

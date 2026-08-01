@@ -1,5 +1,6 @@
 import { ImageResponse } from 'next/og';
 import { COPY } from '@/lib/copy';
+import { gruvboxLight } from '@/lib/theme';
 
 export const alt = COPY.meta.title;
 export const size = { width: 1200, height: 630 };
@@ -17,8 +18,8 @@ export default function OpenGraphImage() {
           alignItems: 'flex-start',
           justifyContent: 'center',
           padding: 80,
-          backgroundColor: '#1d2021',
-          color: '#fbf1c7',
+          backgroundColor: gruvboxLight.bgHard,
+          color: gruvboxLight.fg,
           fontFamily:
             'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
         }}
@@ -28,18 +29,18 @@ export default function OpenGraphImage() {
             fontSize: 72,
             fontWeight: 700,
             letterSpacing: '-0.02em',
-            color: '#fabd2f',
+            color: gruvboxLight.accentDeep,
             marginBottom: 32,
           }}
         >
-          convyio
+          {COPY.productName}
         </div>
         <div
           style={{
             fontSize: 40,
             lineHeight: 1.3,
             maxWidth: 900,
-            color: '#fbf1c7',
+            color: gruvboxLight.fg,
           }}
         >
           Your team and its agents, in the same room.
@@ -50,7 +51,7 @@ export default function OpenGraphImage() {
             bottom: 80,
             left: 80,
             fontSize: 24,
-            color: '#928374',
+            color: gruvboxLight.fgMuted,
           }}
         >
           Get early access

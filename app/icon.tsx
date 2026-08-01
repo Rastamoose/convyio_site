@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og';
+import { gruvboxLight } from '@/lib/theme';
 
 export const size = { width: 32, height: 32 };
 export const contentType = 'image/png';
@@ -13,16 +14,16 @@ export default function Icon() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: '#1d2021',
+          backgroundColor: gruvboxLight.bg,
           borderRadius: 6,
-          border: '2px solid #504945',
+          border: `2px solid ${gruvboxLight.border}`,
         }}
       >
         <div
           style={{
             fontSize: 20,
             fontWeight: 700,
-            color: '#fabd2f',
+            color: gruvboxLight.accentDeep,
             fontFamily:
               'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
           }}
