@@ -1,3 +1,7 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+
 function BlankAvatar() {
   return (
     <div
@@ -8,13 +12,23 @@ function BlankAvatar() {
 }
 
 export function VisualChat() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // The box's aspect ratio shrinks its absolute height on wider (2-column)
+    // layouts, so the transcript can outgrow it. Snap to the bottom on mount
+    // so the agent's reply is always the last thing in view.
+    const node = scrollRef.current;
+    if (node) node.scrollTop = node.scrollHeight;
+  }, []);
+
   return (
     <div className="flex h-full w-full flex-col bg-gruv-bg p-4 text-[13px] leading-relaxed">
       <div className="mb-3 flex items-center gap-2 border-b border-gruv-border pb-2 text-gruv-fg-muted">
         <span className="text-gruv-fg-muted">#</span>
         <span className="font-medium text-gruv-fg">general</span>
       </div>
-      <div className="space-y-3">
+      <div ref={scrollRef} className="min-h-0 flex-1 space-y-3 overflow-y-auto">
         <div className="flex gap-3">
           <BlankAvatar />
           <div className="flex-1 space-y-1">
