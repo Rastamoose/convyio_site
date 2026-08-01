@@ -32,7 +32,7 @@ export default function OpenGraphImage() {
             marginBottom: 32,
           }}
         >
-          plurall
+          convyio
         </div>
         <div
           style={{

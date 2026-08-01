@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
 import './globals.css';
 import { COPY } from '@/lib/copy';
 import { PostHogProvider } from '@/components/PostHogProvider';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://plurall.example.com'),
+  metadataBase: new URL('https://convyio.example.com'),
   title: COPY.meta.title,
   description: COPY.meta.description,
   openGraph: {
@@ -31,14 +32,20 @@ export const metadata: Metadata = {
   },
 };
 
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
 export default function RootLayout({
   children,
 }: {
   children: ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className="min-h-screen bg-gruv-bg text-gruv-fg antialiased">
+    <html lang="en" className={`dark ${inter.variable}`}>
+      <body className="min-h-screen bg-gruv-bg-hard font-sans text-gruv-fg antialiased">
         <PostHogProvider>{children}</PostHogProvider>
       </body>
     </html>

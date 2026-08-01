@@ -66,12 +66,15 @@ export function EmailForm({ location, className }: EmailFormProps) {
     return (
       <div
         className={cn(
-          'flex items-center justify-center rounded-lg border border-gruv-green/30 bg-gruv-green/10 px-4 py-3 text-sm text-gruv-green',
+          'flex items-center justify-center gap-2 rounded-full border border-gruv-green/30 bg-gruv-green/10 px-4 py-3 text-sm text-gruv-green',
           className
         )}
         role="status"
         aria-live="polite"
       >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+        </svg>
         {COPY.form.success}
       </div>
     );
@@ -92,7 +95,7 @@ export function EmailForm({ location, className }: EmailFormProps) {
           placeholder={COPY.form.placeholder}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="flex-1 rounded-lg border border-gruv-border bg-gruv-bg-soft px-4 py-3 text-gruv-fg placeholder:text-gruv-fg-muted focus:border-gruv-accent focus:outline-none focus:ring-2 focus:ring-gruv-accent/50"
+          className="input-inset flex-1 px-5 py-2.5 text-sm text-gruv-fg placeholder:text-gruv-fg-muted"
           aria-invalid={status === 'error'}
           aria-describedby={status === 'error' ? `email-error-${location}` : undefined}
         />
@@ -108,11 +111,11 @@ export function EmailForm({ location, className }: EmailFormProps) {
         <button
           type="submit"
           disabled={status === 'submitting'}
-          className="inline-flex items-center justify-center rounded-lg bg-gruv-accent px-6 py-3 font-medium text-gruv-bg transition-colors hover:bg-gruv-accent/90 focus:outline-none focus:ring-2 focus:ring-gruv-accent/50 disabled:cursor-not-allowed disabled:opacity-60"
+          className="btn-3d whitespace-nowrap px-5 py-2.5 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-gruv-accent/50"
         >
           {status === 'submitting' ? (
             <span className="flex items-center gap-2">
-              <span className="h-4 w-4 animate-spin rounded-full border-2 border-gruv-bg border-t-transparent" />
+              <span className="h-4 w-4 animate-spin rounded-full border-2 border-gruv-bg-hard border-t-transparent" />
               Submitting…
             </span>
           ) : (

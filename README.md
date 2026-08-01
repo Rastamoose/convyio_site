@@ -1,6 +1,6 @@
-# plurall landing page
+# convyio landing page
 
-Single-route static Next.js marketing site for **plurall**.
+Single-route static Next.js marketing site for **convyio**.
 
 ## Stack
 
@@ -63,7 +63,7 @@ vercel --prod dist/
 
 ## Notes
 
-- Copy is verbatim from the build brief. Replace `[NAME]` with `plurall`.
+- Copy is verbatim from the build brief. Replace `[NAME]` with `convyio`.
 - The hero H1 has an A/B variant at `/?v=2`.
 - The demo slot is a screenshot-style mockup, not a video. A real screen recording can replace the mockup later.
 - `robots.txt` allows all crawlers. Update the sitemap URL before deploying.

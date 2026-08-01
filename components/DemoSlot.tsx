@@ -57,19 +57,19 @@ export function DemoSlot() {
   return (
     <section id="demo" ref={sectionRef} className="px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
       <div className="mx-auto max-w-4xl">
-        <div className="relative overflow-hidden rounded-xl border border-gruv-border bg-gruv-bg-soft shadow-2xl">
+        <div className="relative overflow-hidden rounded-2xl border border-gruv-border/70 bg-gruv-bg shadow-frame">
           <DemoChat />
 
           {/* Play affordance */}
           <button
             onClick={() => setOpen(true)}
-            className="absolute inset-0 flex items-center justify-center bg-gruv-bg/30 transition-colors hover:bg-gruv-bg/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-gruv-accent"
+            className="group absolute inset-0 flex items-center justify-center bg-gradient-to-b from-gruv-bg-hard/20 to-gruv-bg-hard/60 transition-colors hover:from-gruv-bg-hard/10 hover:to-gruv-bg-hard/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-gruv-accent"
             aria-label={COPY.demo.playLabel}
           >
-            <span className="flex h-16 w-16 items-center justify-center rounded-full bg-gruv-accent text-gruv-bg shadow-lg transition-transform hover:scale-105">
+            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-gruv-accent text-gruv-bg-hard shadow-[0_3px_0_0_#b57614,0_0_24px_rgba(250,189,47,0.35)] transition-all group-hover:scale-105 group-active:translate-y-[3px] group-active:shadow-[0_0_0_0_#b57614,0_0_24px_rgba(250,189,47,0.35)]">
               <svg
-                width="24"
-                height="24"
+                width="22"
+                height="22"
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 aria-hidden="true"
@@ -79,25 +79,25 @@ export function DemoSlot() {
             </span>
           </button>
         </div>
-        <p className="mt-4 text-center text-sm text-gruv-fg-muted">{COPY.demo.caption}</p>
+        <p className="mt-4 text-center text-[13px] text-gruv-fg-muted">{COPY.demo.caption}</p>
       </div>
 
       {/* Lightbox */}
       {open && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-gruv-bg/95 p-4"
+          className="fixed inset-0 z-50 flex animate-fade-in items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
           role="dialog"
           aria-modal="true"
           aria-label={COPY.demo.playLabel}
           onClick={handleClose}
         >
           <div
-            className="relative max-h-[90vh] w-full max-w-4xl overflow-auto rounded-xl border border-gruv-border bg-gruv-bg-soft p-4 shadow-2xl"
+            className="relative max-h-[90vh] w-full max-w-4xl overflow-auto rounded-2xl border border-gruv-border/70 bg-gruv-bg p-4 shadow-frame"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={handleClose}
-              className="absolute right-3 top-3 rounded p-2 text-gruv-fg-muted hover:bg-gruv-bg-hover hover:text-gruv-fg focus:outline-none focus-visible:ring-2 focus-visible:ring-gruv-accent"
+              className="absolute right-3 top-3 rounded-full p-2 text-gruv-fg-muted transition-colors hover:bg-gruv-bg-hover hover:text-gruv-fg focus:outline-none focus-visible:ring-2 focus-visible:ring-gruv-accent"
               aria-label="Close demo"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
