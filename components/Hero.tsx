@@ -32,10 +32,14 @@ export function Hero({ variant = 'problem-aware' }: HeroProps) {
     <section className="relative px-4 pb-10 pt-12 sm:px-6 sm:pb-12 sm:pt-16 lg:px-8 lg:pt-20">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
-          className="absolute -top-16 right-0 h-[24rem] w-[28rem] opacity-90 [mask-image:radial-gradient(120%_120%_at_100%_0%,black,transparent_70%)] sm:h-[30rem] sm:w-[44rem]"
+          className="absolute inset-0 opacity-90"
           style={{
             backgroundImage: 'radial-gradient(rgb(var(--gruv-fg-dark)) 1.5px, transparent 1.5px)',
             backgroundSize: '20px 20px',
+            maskImage:
+              'radial-gradient(38% 46% at 94% 58%, black 25%, transparent 78%), radial-gradient(30% 34% at 58% 38%, rgb(0 0 0 / 0.45) 10%, transparent 70%), radial-gradient(44% 50% at 8% 48%, rgb(0 0 0 / 0.9) 20%, transparent 80%)',
+            WebkitMaskImage:
+              'radial-gradient(38% 46% at 94% 58%, black 25%, transparent 78%), radial-gradient(30% 34% at 58% 38%, rgb(0 0 0 / 0.45) 10%, transparent 70%), radial-gradient(44% 50% at 8% 48%, rgb(0 0 0 / 0.9) 20%, transparent 80%)',
           }}
         />
       </div>
