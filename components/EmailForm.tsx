@@ -28,7 +28,12 @@ export function EmailForm({ location, className }: EmailFormProps) {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!email || status === 'submitting') return;
+    if (status === 'submitting') return;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStatus('error');
+      setErrorMessage('Please enter a valid email address.');
+      return;
+    }
 
     setStatus('submitting');
     setErrorMessage('');
@@ -54,7 +59,11 @@ export function EmailForm({ location, className }: EmailFormProps) {
         });
       } else {
         setStatus('error');
-        setErrorMessage(result?.error || COPY.form.error);
+        setErrorMessage(
+          result?.errors?.some((err: { code?: string }) => err.code?.includes('EMAIL'))
+            ? 'Please enter a valid email address.'
+            : COPY.form.error
+        );
         capture(ANALYTICS_EVENTS.EMAIL_SUBMITTED, {
           location,
           success: false,

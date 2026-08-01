@@ -88,35 +88,14 @@ body {
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* Paper material: graph-grid texture + warm wash (light mode) */
-body::before {
+/* Paper grain — sits above all surfaces so flat colors read as material */
+body::after {
   content: '';
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 50;
   pointer-events: none;
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgb(var(--gruv-accent) / 0.07), transparent 70%),
-    repeating-linear-gradient(
-      0deg,
-      rgb(var(--gruv-fg) / 0.028) 0,
-      rgb(var(--gruv-fg) / 0.028) 1px,
-      transparent 1px,
-      transparent 32px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      rgb(var(--gruv-fg) / 0.028) 0,
-      rgb(var(--gruv-fg) / 0.028) 1px,
-      transparent 1px,
-      transparent 32px
-    );
-}
-
-/* Dark mode: wash only, no grid */
-.dark body::before {
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgb(var(--gruv-accent) / 0.06), transparent 70%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
 }
 
 h1,
@@ -203,27 +182,6 @@ h3 {
     inset 0 2px 4px rgb(var(--gruv-fg) / 0.08),
     0 0 0 2px rgb(var(--gruv-accent) / 0.35);
   outline: none;
-}
-
-/* Scroll reveal — hidden state is gated on html.js so the page is fully
-   legible with JavaScript disabled or failed */
-@media (prefers-reduced-motion: no-preference) {
-  .js .reveal {
-    opacity: 0;
-    transform: translateY(16px);
-    filter: blur(4px);
-    transition:
-      opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-      filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    transition-delay: var(--reveal-delay, 0ms);
-  }
-
-  .reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
 }
 
 ::selection {

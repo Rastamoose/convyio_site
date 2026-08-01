@@ -7,7 +7,9 @@ export const COPY = {
   },
   hero: {
     h1: 'Your team has quietly become five people working alone.',
+    h1Highlight: 'working alone',
     h1Variant: 'Where your team and its agents work in the same room.',
+    h1VariantHighlight: 'the same room',
     sub: 'convyio is a team chat where the agents are members too. Brief one in the channel, watch it work in front of everyone, and let what you agree on land on one board.',
     cta: 'Get early access',
   },
@@ -49,6 +51,6 @@ export const COPY = {
   },
   demo: {
     caption: 'A live channel where humans and agents message together.',
-    playLabel: 'Watch the loop',
+    playLabel: 'Watch it run',
   },
 } as const;

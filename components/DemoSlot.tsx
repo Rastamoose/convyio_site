@@ -87,9 +87,13 @@ export function DemoSlot() {
   }
 
   return (
-    <section id="demo" ref={sectionRef} className="px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-      <div className="mx-auto max-w-4xl">
-        <div className="dark relative overflow-hidden rounded-2xl border border-gruv-border/70 bg-gruv-bg shadow-frame">
+    <section
+      id="demo"
+      ref={sectionRef}
+      className="bg-gruv-bg-soft px-4 py-20 sm:px-6 sm:py-24 lg:px-8"
+    >
+      <div className="mx-auto max-w-6xl">
+        <div className="dark relative h-[480px] overflow-hidden rounded-2xl border border-gruv-border/70 bg-gruv-bg shadow-frame sm:h-[560px]">
           <DemoChat />
 
           {/* Play affordance */}
@@ -125,7 +129,7 @@ export function DemoSlot() {
         >
           <div
             ref={dialogRef}
-            className="dark relative max-h-[90vh] w-full max-w-4xl overflow-auto rounded-2xl border border-gruv-border/70 bg-gruv-bg p-4 shadow-frame"
+            className="dark relative h-[85vh] w-full max-w-5xl overflow-hidden rounded-2xl border border-gruv-border/70 bg-gruv-bg p-4 pt-12 shadow-frame"
             onClick={(e) => e.stopPropagation()}
           >
             <button

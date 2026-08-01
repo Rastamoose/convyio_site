@@ -157,7 +157,8 @@ const MESSAGES: DemoMessage[] = [
   },
 ];
 
-const MESSAGE_INTERVAL_MS = 1400;
+const MESSAGE_INTERVAL_MS = 1800;
+const AGENT_TYPING_MS = 3200;
 
 export function DemoChat({ animate = false }: { animate?: boolean }) {
   const [visibleCount, setVisibleCount] = useState(animate ? 0 : MESSAGES.length);
@@ -172,27 +173,41 @@ export function DemoChat({ animate = false }: { animate?: boolean }) {
       return;
     }
 
-    const interval = setInterval(() => {
-      setVisibleCount((count) => {
-        if (count >= MESSAGES.length) {
-          clearInterval(interval);
-          return count;
-        }
-        return count + 1;
-      });
-    }, MESSAGE_INTERVAL_MS);
-    return () => clearInterval(interval);
+    // Play once: append message → wait (longer if the next speaker is the
+    // agent) → ... → stop on the full transcript. The lightbox unmounts this
+    // component on close, so reopening starts a fresh run.
+    let timer: ReturnType<typeof setTimeout>;
+    let count = 0;
+
+    function step() {
+      count += 1;
+      setVisibleCount(count);
+      if (count < MESSAGES.length) {
+        timer = setTimeout(step, MESSAGES[count].agent ? AGENT_TYPING_MS : MESSAGE_INTERVAL_MS);
+      }
+    }
+
+    timer = setTimeout(step, MESSAGE_INTERVAL_MS);
+    return () => clearTimeout(timer);
   }, [animate]);
 
   useEffect(() => {
-    if (!animate || !scrollRef.current) return;
-    scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    // Keep the newest message in view. The frame itself never changes size
+    // (the parent owns a fixed height) — only this container's scroll moves.
+    const node = scrollRef.current;
+    if (!node) return;
+    if (!animate) {
+      // Static poster: snap to the end of the transcript
+      node.scrollTop = node.scrollHeight;
+    } else if (visibleCount > 0) {
+      node.scrollTo({ top: node.scrollHeight, behavior: 'smooth' });
+    }
   }, [animate, visibleCount]);
 
   const playing = animate && visibleCount < MESSAGES.length;
 
   return (
-    <div className="flex h-full min-h-[420px] flex-col md:flex-row">
+    <div className="flex h-full flex-col md:flex-row">
       {/* Sidebar */}
       <div className="hidden w-14 flex-col items-center gap-3 border-r border-gruv-border/60 bg-gruv-bg-hard/60 py-4 md:flex">
         <Avatar name="alex" />
@@ -207,13 +222,13 @@ export function DemoChat({ animate = false }: { animate?: boolean }) {
         </div>
         <div
           ref={scrollRef}
-          className={`flex-1 space-y-4 overflow-y-auto p-4 text-[13px] leading-relaxed ${
-            animate ? 'max-h-[70vh]' : ''
+          className={`min-h-0 flex-1 space-y-4 overflow-y-auto p-4 text-[13px] leading-relaxed ${
+            animate ? '' : 'overflow-y-hidden'
           }`}
           aria-live={animate ? 'polite' : undefined}
         >
           {MESSAGES.slice(0, visibleCount).map((message, index) => (
-            <div key={index} className={animate ? 'animate-fade-up' : undefined}>
+            <div key={index} className={animate ? 'animate-fade-in' : undefined}>
               <Message name={message.name} time={message.time} agent={message.agent}>
                 {message.body}
               </Message>
