@@ -1,5 +1,9 @@
 # Project Rules — convyio site
 
+## Form controls theme together
+
+Inputs and option chips/pills in forms share the `.input-inset` / `.form-chip` classes in `app/globals.css`. Any theming change (surface color, border, radius) must be made there so both stay in sync — never restyle chips separately from inputs.
+
 ## Visual design: flat, solid Gruvbox colors only
 
 Do not use translucent/alpha-tone utility classes for background fills, borders, or text colors (the "vibecoded glassmorphism" look). Everything should read as flat color against flat color.

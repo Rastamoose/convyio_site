@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 
 const AVATAR_HUES: Record<string, string> = {
   alex: 'bg-gruv-accent',
@@ -156,52 +156,67 @@ const MESSAGES: DemoMessage[] = [
 
 const MESSAGE_INTERVAL_MS = 1800;
 const AGENT_TYPING_MS = 3200;
+const LOOP_PAUSE_MS = 5000;
 
-export function DemoChat({ animate = false }: { animate?: boolean }) {
-  const [visibleCount, setVisibleCount] = useState(animate ? 0 : MESSAGES.length);
-  const scrollRef = useRef<HTMLDivElement>(null);
+/**
+ * Drives the transcript reveal. A single instance of this hook lives in
+ * DemoSlot so the inline frame and the lightbox always show the same
+ * progress — opening the lightbox continues the run in place, and looping
+ * back to the start restarts both at once.
+ */
+export function useDemoPlayback(active: boolean) {
+  const [visibleCount, setVisibleCount] = useState(0);
 
   useEffect(() => {
-    if (!animate) return;
+    if (!active) return;
 
-    // Reduced motion: show the full transcript immediately
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
       setVisibleCount(MESSAGES.length);
       return;
     }
 
-    // Play once: append message → wait (longer if the next speaker is the
-    // agent) → ... → stop on the full transcript. The lightbox unmounts this
-    // component on close, so reopening starts a fresh run.
-    let timer: ReturnType<typeof setTimeout>;
-    let count = 0;
-
-    function step() {
-      count += 1;
-      setVisibleCount(count);
-      if (count < MESSAGES.length) {
-        timer = setTimeout(step, MESSAGES[count].agent ? AGENT_TYPING_MS : MESSAGE_INTERVAL_MS);
-      }
+    if (visibleCount >= MESSAGES.length) {
+      const timer = setTimeout(() => setVisibleCount(0), LOOP_PAUSE_MS);
+      return () => clearTimeout(timer);
     }
 
-    timer = setTimeout(step, MESSAGE_INTERVAL_MS);
+    const delay = MESSAGES[visibleCount].agent ? AGENT_TYPING_MS : MESSAGE_INTERVAL_MS;
+    const timer = setTimeout(() => setVisibleCount((count) => count + 1), delay);
     return () => clearTimeout(timer);
-  }, [animate]);
+  }, [active, visibleCount]);
+
+  const restart = useCallback(() => setVisibleCount(0), []);
+  const playing = active && visibleCount < MESSAGES.length;
+
+  return { visibleCount, playing, restart };
+}
+
+export function DemoChat({
+  visibleCount = MESSAGES.length,
+  playing = false,
+}: {
+  visibleCount?: number;
+  playing?: boolean;
+}) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const animate = playing || visibleCount < MESSAGES.length;
 
   useEffect(() => {
     // Keep the newest message in view. The frame itself never changes size
     // (the parent owns a fixed height) — only this container's scroll moves.
     const node = scrollRef.current;
     if (!node) return;
-    if (!animate) {
-      // Static poster: snap to the end of the transcript
-      node.scrollTop = node.scrollHeight;
-    } else if (visibleCount > 0) {
+    if (visibleCount === 0) {
+      node.scrollTop = 0;
+    } else if (animate) {
       node.scrollTo({ top: node.scrollHeight, behavior: 'smooth' });
+    } else {
+      node.scrollTop = node.scrollHeight;
     }
   }, [animate, visibleCount]);
-
-  const playing = animate && visibleCount < MESSAGES.length;
 
   return (
     <div className="flex h-full flex-col md:flex-row">

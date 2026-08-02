@@ -1,8 +1,24 @@
 import { COPY } from '@/lib/copy';
 import { VariantTag } from './VariantTag';
+import { EarlyAccessButton } from './EarlyAccessButton';
 
 interface HeroProps {
   variant?: 'problem-aware' | 'solution-aware';
+}
+
+function renderSub(text: string) {
+  const token = '@mention';
+  const i = text.indexOf(token);
+  if (i === -1) return text;
+  return (
+    <>
+      {text.slice(0, i)}
+      <span className="rounded bg-gruv-bg-hover px-1 py-0.5 font-medium text-gruv-accent-deep">
+        {token}
+      </span>
+      {text.slice(i + token.length)}
+    </>
+  );
 }
 
 function renderH1(text: string, phrase: string) {
@@ -50,13 +66,16 @@ export function Hero({ variant = 'problem-aware' }: HeroProps) {
             {renderH1(h1, highlight)}
           </h1>
           <p className="mb-8 max-w-xl animate-fade-up text-lg leading-relaxed text-gruv-fg-body [animation-delay:80ms]">
-            {COPY.hero.sub}
+            {renderSub(COPY.hero.sub)}
           </p>
           <div className="w-full animate-fade-up [animation-delay:120ms]">
             <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-start">
-              <a href="#closing" className="btn-3d whitespace-nowrap px-6 py-2.5">
+              <EarlyAccessButton
+                location="hero"
+                className="btn-3d whitespace-nowrap px-6 py-2.5"
+              >
                 {COPY.hero.cta}
-              </a>
+              </EarlyAccessButton>
               <a
                 href="#demo"
                 className="btn-raised group gap-1.5 whitespace-nowrap px-5 py-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gruv-accent"

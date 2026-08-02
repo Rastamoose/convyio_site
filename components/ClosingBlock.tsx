@@ -1,5 +1,5 @@
 import { COPY } from '@/lib/copy';
-import { EmailForm } from './EmailForm';
+import { EarlyAccessButton } from './EarlyAccessButton';
 
 export function ClosingBlock() {
   return (
@@ -14,9 +14,9 @@ export function ClosingBlock() {
         <p className="mb-10 text-lg leading-relaxed text-gruv-fg-body sm:text-xl">
           {COPY.closing.support}
         </p>
-        <div className="mx-auto max-w-3xl">
-          <EmailForm location="closing" />
-        </div>
+        <EarlyAccessButton location="closing" className="btn-3d px-6 py-3">
+          {COPY.hero.cta}
+        </EarlyAccessButton>
       </div>
     </section>
   );

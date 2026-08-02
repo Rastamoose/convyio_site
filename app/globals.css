@@ -168,15 +168,42 @@ h3 {
   box-shadow: 0 0 0 0 var(--ledge-neutral);
 }
 
-/* Flat input — borderless, an off-colour surface provides the contrast */
-.input-inset {
+/* Form controls — inputs and option chips share the same surface + border
+   tokens. Change them here, never per-component. */
+.input-inset,
+.form-chip {
   background-color: rgb(var(--input-bg));
-  border-radius: 9999px;
+  border: 1px solid rgb(var(--gruv-border));
+  border-radius: 0.5rem;
 }
 
 .input-inset:focus {
+  border-color: rgb(var(--gruv-accent));
   box-shadow: 0 0 0 2px rgb(var(--gruv-accent) / 0.35);
   outline: none;
+}
+
+.form-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: rgb(var(--gruv-fg-body));
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.form-chip:hover {
+  border-color: rgb(var(--gruv-fg-muted));
+}
+
+.form-chip[aria-pressed='true'] {
+  background-color: rgb(var(--gruv-bg-hover));
+  border-color: rgb(var(--gruv-fg));
+  color: rgb(var(--gruv-fg));
+  font-weight: 500;
 }
 
 ::selection {

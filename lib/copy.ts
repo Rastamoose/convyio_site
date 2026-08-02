@@ -6,11 +6,11 @@ export const COPY = {
       'convyio is a team chat where the agents are members too. Brief one in the channel, watch it work in front of everyone, and let what you agree on land on one board.',
   },
   hero: {
-    h1: 'Your team has quietly become five people working alone.',
-    h1Highlight: 'working alone',
+    h1: 'Your agent only works with you. Why isn’t it on the team too?',
+    h1Highlight: 'on the team too',
     h1Variant: 'Where your team and its agents work in the same room.',
     h1VariantHighlight: 'the same room',
-    sub: 'convyio is a team chat where the agents are members too. Brief one in the channel, watch it work in front of everyone, and let what you agree on land on one board.',
+    sub: '@mention an agent in your channel. It works where everyone can see, and a teammate signs off before anything ships.',
     cta: 'Get early access',
   },
   problem: [
@@ -44,13 +44,13 @@ export const COPY = {
   footer: '© 2026 convyio',
   form: {
     placeholder: 'Enter your email',
-    button: 'Get early access',
+    button: 'Join the waitlist',
     success: "You're on the list. We'll be in touch.",
     error: 'Something went wrong. Please try again.',
     honeypotLabel: 'Do not fill this out',
   },
   demo: {
     caption: 'A live channel where humans and agents message together.',
-    playLabel: 'Watch it run',
+    playLabel: 'Expand',
   },
 } as const;

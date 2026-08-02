@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect, FormEvent } from "react";
+import { useState, useRef, FormEvent } from "react";
 import { COPY } from "@/lib/copy";
 import { ANALYTICS_EVENTS } from "@/lib/posthog";
 import { cn } from "@/lib/utils";
@@ -22,7 +22,7 @@ const AGENT_OPTIONS = [
 const CHAT_OPTIONS = ["Slack", "Discord", "Teams", "Google Chat", "Other"];
 
 interface EmailFormProps {
-  location: "hero" | "closing";
+  location: "hero" | "closing" | "modal";
   className?: string;
 }
 
@@ -40,13 +40,20 @@ function Chip({
       type="button"
       onClick={onToggle}
       aria-pressed={selected}
-      className={cn(
-        "rounded-full px-3.5 py-1.5 font-mono text-xs font-medium tracking-wide transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gruv-accent",
-        selected
-          ? "bg-gruv-fg text-gruv-bg"
-          : "bg-gruv-bg-soft text-gruv-fg-body hover:bg-gruv-bg-hover",
-      )}
+      className="form-chip focus:outline-none focus-visible:ring-2 focus-visible:ring-gruv-accent"
     >
+      {selected && (
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+          className="shrink-0"
+        >
+          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+        </svg>
+      )}
       {label}
     </button>
   );
@@ -66,13 +73,16 @@ function FieldLabel({
   return (
     <Tag
       htmlFor={htmlFor}
-      className="mb-2.5 block font-mono text-xs font-medium uppercase tracking-wider text-gruv-fg-muted"
+      className="mb-2.5 block text-sm font-medium text-gruv-fg"
     >
       {children}
       {optional && (
-        <span className="ml-1.5 normal-case tracking-normal text-gruv-fg-dark">
-          (optional)
-        </span>
+        <>
+          {" "}
+          <span className="whitespace-nowrap font-normal text-gruv-fg-muted">
+            (optional)
+          </span>
+        </>
       )}
     </Tag>
   );
@@ -90,19 +100,6 @@ export function EmailForm({ location, className }: EmailFormProps) {
   );
   const [errorMessage, setErrorMessage] = useState("");
   const hasFiredFocus = useRef(false);
-
-  useEffect(() => {
-    // Any "Get early access" CTA click brings the form back after a
-    // successful submission (answers are kept so they can be edited)
-    function handleDocClick(e: MouseEvent) {
-      const anchor = (e.target as HTMLElement).closest?.(
-        'a[href="#closing"], a[href="#email-hero"]',
-      );
-      if (anchor) setStatus((prev) => (prev === "success" ? "idle" : prev));
-    }
-    document.addEventListener("click", handleDocClick);
-    return () => document.removeEventListener("click", handleDocClick);
-  }, []);
 
   function handleFocus() {
     if (hasFiredFocus.current) return;
@@ -190,7 +187,7 @@ export function EmailForm({ location, className }: EmailFormProps) {
     return (
       <div
         className={cn(
-          "flex items-center justify-center gap-2 rounded-full border border-gruv-green bg-gruv-green px-4 py-3 text-sm text-gruv-bg-hard",
+          "flex items-center justify-center gap-2 rounded-lg border border-gruv-green bg-gruv-green px-4 py-3 text-sm text-gruv-bg-hard",
           className,
         )}
         role="status"
@@ -219,8 +216,8 @@ export function EmailForm({ location, className }: EmailFormProps) {
       )}
       noValidate
     >
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div className="sm:col-span-2">
+      <div className="grid gap-5">
+        <div>
           <FieldLabel htmlFor={`email-${location}`}>Email</FieldLabel>
           <input
             id={`email-${location}`}
@@ -311,7 +308,7 @@ export function EmailForm({ location, className }: EmailFormProps) {
           )}
         </fieldset>
 
-        <div className="sm:col-span-2">
+        <div>
           <FieldLabel htmlFor={`visibility-${location}`} optional>
             When an agent finishes something, how does the rest of the team find
             out?
@@ -323,7 +320,7 @@ export function EmailForm({ location, className }: EmailFormProps) {
             value={visibility}
             onChange={(e) => setVisibility(e.target.value)}
             placeholder="Someone pastes the result into the channel… or nobody does."
-            className="input-inset w-full resize-none !rounded-xl px-4 py-3 text-sm text-gruv-fg placeholder:text-gruv-fg-muted"
+            className="input-inset w-full resize-none px-4 py-3 text-sm text-gruv-fg placeholder:text-gruv-fg-muted"
           />
         </div>
       </div>
@@ -331,11 +328,11 @@ export function EmailForm({ location, className }: EmailFormProps) {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="btn-3d mt-6 w-full whitespace-nowrap px-5 py-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gruv-accent/50"
+        className="mt-6 flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-gruv-accent px-5 py-2.5 text-sm font-medium text-[color:var(--btn-3d-text)] transition-[filter] hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-gruv-accent/50"
       >
         {status === "submitting" ? (
           <span className="flex items-center gap-2">
-            <span className="h-4 w-4 animate-spin rounded-full border-2 border-gruv-bg-hard border-t-transparent" />
+            <span className="h-4 w-4 animate-spin rounded-full border-2 border-[color:var(--btn-3d-text)] border-t-transparent" />
             Submitting…
           </span>
         ) : (
