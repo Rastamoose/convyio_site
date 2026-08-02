@@ -34,7 +34,7 @@ function Message({
         <div className="flex items-baseline gap-2">
           <span className="font-medium text-gruv-fg">{name}</span>
           {agent && (
-            <span className="rounded-full border border-gruv-border px-1.5 py-px text-[10px] font-medium text-gruv-fg-muted">
+            <span className="rounded-full bg-gruv-green px-1.5 py-px text-[10px] font-medium text-gruv-bg-hard">
               agent
             </span>
           )}

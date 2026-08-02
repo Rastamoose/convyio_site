@@ -131,7 +131,7 @@ export function DemoSlot() {
         >
           <div
             ref={dialogRef}
-            className="dark relative h-[85vh] w-full max-w-5xl overflow-hidden rounded-2xl border border-gruv-border bg-gruv-bg shadow-frame"
+            className="dark relative h-[70vh] w-full max-w-6xl overflow-hidden rounded-2xl border border-gruv-border bg-gruv-bg shadow-frame"
             onClick={(e) => e.stopPropagation()}
           >
             <button
