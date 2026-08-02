@@ -10,7 +10,7 @@ export function DemoSlot() {
   const [open, setOpen] = useState(false);
   const [hasFiredScroll, setHasFiredScroll] = useState(false);
   const [autoPlay, setAutoPlay] = useState(false);
-  const { visibleCount, playing } = useDemoPlayback(autoPlay);
+  const { visibleCount, playing, done, restart } = useDemoPlayback(autoPlay);
   const openTimeRef = useRef<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -134,6 +134,17 @@ export function DemoSlot() {
             className="dark relative h-[70vh] w-full max-w-6xl overflow-hidden rounded-2xl border border-gruv-border bg-gruv-bg shadow-frame"
             onClick={(e) => e.stopPropagation()}
           >
+            {done && (
+              <button
+                onClick={restart}
+                className="absolute right-12 top-3 rounded-full p-2 text-gruv-fg-muted transition-colors hover:bg-gruv-bg-hover hover:text-gruv-fg focus:outline-none focus-visible:ring-2 focus-visible:ring-gruv-accent"
+                aria-label="Replay demo"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M17.65 6.35A7.958 7.958 0 0 0 12 4c-4.42 0-7.99 3.58-7.99 8S7.58 20 12 20c3.73 0 6.84-2.55 7.73-6h-2.08a5.99 5.99 0 0 1-5.65 4c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+                </svg>
+              </button>
+            )}
             <button
               ref={closeBtnRef}
               onClick={handleClose}

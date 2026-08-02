@@ -156,19 +156,18 @@ const MESSAGES: DemoMessage[] = [
 
 const MESSAGE_INTERVAL_MS = 1800;
 const AGENT_TYPING_MS = 3200;
-const LOOP_PAUSE_MS = 5000;
 
 /**
  * Drives the transcript reveal. A single instance of this hook lives in
  * DemoSlot so the inline frame and the lightbox always show the same
- * progress — opening the lightbox continues the run in place, and looping
- * back to the start restarts both at once.
+ * progress — opening the lightbox continues the run in place. Once the
+ * run completes it stays put; `restart` replays it from the beginning.
  */
 export function useDemoPlayback(active: boolean) {
   const [visibleCount, setVisibleCount] = useState(0);
 
   useEffect(() => {
-    if (!active) return;
+    if (!active || visibleCount >= MESSAGES.length) return;
 
     if (
       typeof window !== 'undefined' &&
@@ -178,11 +177,6 @@ export function useDemoPlayback(active: boolean) {
       return;
     }
 
-    if (visibleCount >= MESSAGES.length) {
-      const timer = setTimeout(() => setVisibleCount(0), LOOP_PAUSE_MS);
-      return () => clearTimeout(timer);
-    }
-
     const delay = MESSAGES[visibleCount].agent ? AGENT_TYPING_MS : MESSAGE_INTERVAL_MS;
     const timer = setTimeout(() => setVisibleCount((count) => count + 1), delay);
     return () => clearTimeout(timer);
@@ -190,8 +184,9 @@ export function useDemoPlayback(active: boolean) {
 
   const restart = useCallback(() => setVisibleCount(0), []);
   const playing = active && visibleCount < MESSAGES.length;
+  const done = visibleCount >= MESSAGES.length;
 
-  return { visibleCount, playing, restart };
+  return { visibleCount, playing, done, restart };
 }
 
 export function DemoChat({
@@ -234,9 +229,7 @@ export function DemoChat({
         </div>
         <div
           ref={scrollRef}
-          className={`min-h-0 flex-1 space-y-4 overflow-y-auto p-4 text-[13px] leading-relaxed ${
-            animate ? '' : 'overflow-y-hidden'
-          }`}
+          className="min-h-0 flex-1 space-y-4 overflow-y-auto overscroll-contain p-4 text-[13px] leading-relaxed"
           aria-live={animate ? 'polite' : undefined}
         >
           {MESSAGES.slice(0, visibleCount).map((message, index) => (
