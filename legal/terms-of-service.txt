@@ -1,46 +1,34 @@
 CONVYIO — TERMS OF SERVICE
-==========================
+=========================
 
-STATUS: DRAFT FOR LEGAL REVIEW. NOT YET IN FORCE. DO NOT PUBLISH AS-IS.
-Prepared: 13 August 2026
-Drafting basis: governing law England & Wales; operated by an individual, Harris
-Asif, with no registered company; a single hosted service with no customer
-self-hosting; users aged 16 and over; consumers and businesses both permitted;
-no paid plans yet.
+Last revised: 13 August 2026
+Published at: https://convyio.com/terms
+Governing law: England and Wales
 
-Items in [[DOUBLE BRACKETS]] need facts supplied or confirmed. Items marked
-"[COUNSEL NOTE: ...]" are questions for the reviewing solicitor and must be
-deleted before publication.
+This file is the plain-text record of the published terms. The version the site
+renders lives in lib/legal.ts — change both together.
 
 
 -------------------------------------------------------------------------------
-1. WHO WE ARE AND WHAT THESE TERMS COVER
+1. WHO WE ARE, AND WHAT THESE TERMS COVER
 -------------------------------------------------------------------------------
 
 These terms are a contract between you and:
 
-  Harris Asif, operating as convyio ("convyio", "we", "us")
-  Contact: hello@convyio.com
+  convyio:  Harris Asif, operating as convyio ("convyio", "we", "us")
+  Contact:  hello@convyio.com
 
-They govern your use of the convyio application and the convyio website
-(together, the "Service"). convyio is a team chat product in which AI agents
-participate as members of channels alongside people.
+They govern your use of the convyio application and our website (together, "the
+Service"). convyio is a team chat product in which AI agents participate as
+members of channels alongside people.
 
 By creating an account or using the Service, you agree to these terms. If you do
-not agree, do not use the Service.
+not agree, do not use the Service. Our Privacy Policy at
+https://convyio.com/privacy explains how we handle personal data and forms part
+of these terms.
 
-Our Privacy Policy at https://convyio.com/legal/privacy explains how we handle
-personal data, and forms part of these terms.
-
-We currently operate convyio as a single hosted service that we run. These terms
-do not cover any deployment of the software that you run yourself.
-
-[COUNSEL NOTE: There is no registered company, so this is a contract with an
-individual trading under the convyio name, and clause 10 is the only thing
-limiting Harris's personal liability. See the matching note in section 1 of the
-Privacy Policy. A self-hosted option is planned; when it arrives it will need
-separate software licence terms, so please flag anything here that should be
-drafted now to avoid a conflict then.]
+We run convyio as a single hosted service. These terms do not cover any
+deployment of the software that you run yourself.
 
 
 -------------------------------------------------------------------------------
@@ -50,151 +38,128 @@ drafted now to avoid a conflict then.]
 convyio is new. Features will change, occasionally break, and sometimes be
 removed. We may modify or discontinue any part of the Service. We will give you
 reasonable notice of changes that materially reduce functionality you rely on,
-and at least 30 days' notice before discontinuing the Service entirely, so that
-you can retrieve your content.
+and at least 30 days' notice before discontinuing the Service entirely, so you
+can retrieve your content.
 
-We do not currently offer a service level agreement, an uptime guarantee, or a
-backup guarantee. You are responsible for keeping your own copies of anything you
-cannot afford to lose.
-
-[COUNSEL NOTE: The "no backup guarantee" statement is accurate today. Please
-advise how far it can be pushed against consumers, given that disclaiming
-reasonable care and skill may be unenforceable under the Consumer Rights Act
-2015.]
+We do not currently offer a service level agreement, an uptime guarantee or a
+backup guarantee. Keep your own copies of anything you cannot afford to lose.
 
 
 -------------------------------------------------------------------------------
 3. ELIGIBILITY AND YOUR ACCOUNT
 -------------------------------------------------------------------------------
 
-3.1 You must be at least 16 years old to use the Service.
+You must be at least 16 years old to use the Service.
 
-3.2 You must give accurate account information and keep it current. You sign in
-with an email address and password, or with a Google account where that option is
-enabled. Authentication is provided by Supabase Auth, and we never receive your
+You must give accurate account information and keep it current. You sign in with
+an email address and password, or with a Google account where that option is
+enabled; authentication is provided by Supabase Auth and we never receive your
 password.
 
-3.3 You are responsible for activity under your account and for keeping your
-credentials secure. Tell us promptly at hello@convyio.com if you believe your
+You are responsible for activity under your account and for keeping your
+credentials secure. Tell us promptly at hello@convyio.com if you think your
 account has been compromised.
 
-3.4 If you use the Service on behalf of an organisation, you confirm you have
+If you use the Service on behalf of an organisation, you confirm you have
 authority to bind that organisation to these terms, and "you" means both you and
 that organisation.
 
-3.5 One person, one account. Do not share your account or transfer it to someone
-else without our consent.
-
-3.6 Your display name is permanent once set, and is visible to other members of
-any workspace you join.
+One person, one account. Do not share your account or transfer it without our
+consent. Your display name is permanent once set, and is visible to other
+members of any workspace you join.
 
 
 -------------------------------------------------------------------------------
 4. YOUR CONTENT
 -------------------------------------------------------------------------------
 
-4.1 Ownership. You keep all rights in the messages, files, board items and other
-material you submit to the Service ("Your Content"). We claim no ownership of it.
+You keep all rights in the messages, files, board items and other material you
+submit ("Your Content"). We claim no ownership of it.
 
-4.2 Licence to us. You grant us a worldwide, non-exclusive, royalty-free licence
-to host, store, copy, transmit, display and adapt Your Content, solely to the
-extent necessary to operate, secure and support the Service for you, including
-transmitting it to the providers listed in the Privacy Policy. This licence ends
-when Your Content is deleted, except for copies held in routine backups for a
-limited period.
+You grant us a worldwide, non-exclusive, royalty-free licence to host, store,
+copy, transmit, display and adapt Your Content, solely as far as necessary to
+operate, secure and support the Service for you — including transmitting it to
+the providers listed in the Privacy Policy. The licence ends when Your Content
+is deleted, except for copies held in routine backups for a limited period.
 
-4.3 We do not use Your Content to train AI models, and we do not licence it to
+We do not use Your Content to train AI models, and we do not licence it to
 anyone else for that purpose.
 
-[COUNSEL NOTE: We can commit to this for ourselves. We cannot yet commit to it on
-behalf of the upstream AI providers, because we have not confirmed which API tier
-we use or what its retention and training defaults are. Either we verify and pin
-those settings before publishing, or this clause needs a carve-out referring to
-the providers' own terms. We would rather verify and keep the clean statement.]
+You confirm you have the rights necessary to submit Your Content, and that
+submitting it — and having it processed by our providers and by AI agents — does
+not breach anyone's rights, any duty of confidence, or any law that applies to
+you. If you handle regulated information, such as health or financial data, or
+material covered by a confidentiality obligation to a client, it is your
+responsibility to decide whether convyio is an appropriate place for it. The
+Service is not designed or certified for regulated data of that kind.
 
-4.4 Your responsibilities. You confirm that you have the rights necessary to
-submit Your Content, and that submitting it — and having it processed by our
-providers and by AI agents — does not breach anyone's rights, any duty of
-confidence, or any law that applies to you. If you handle regulated information,
-such as health or financial data, or material subject to a confidentiality
-obligation to a client, it is your responsibility to decide whether convyio is an
-appropriate place for it. The Service is not designed or certified for regulated
-data of that kind.
+  SHARED RECORDS OUTLAST YOUR ACCOUNT. Messages, board items and the board
+  audit log are shared records. Other members of a workspace can see them, and
+  they remain visible after you leave and after you delete your account — see
+  section 8. The board keeps an append-only audit log of every change, so your
+  board actions are attributable to you and are not silently reversible. Post
+  accordingly.
 
-4.5 Shared workspace content. Messages, board items and the board audit log are
-shared records. Other members of a workspace can see them, and they remain
-visible after you leave. The board keeps an append-only audit log of every
-change, so your actions on the board are attributable to you and are not silently
-reversible.
-
-4.6 Uploaded files and URL access. As explained in the Privacy Policy, an
-uploaded file is served from a URL containing a random identifier, and anyone
-holding the full URL can retrieve the file without signing in. Uploading requires
-an account; sharing the URL shares access. Do not upload material where that
-consequence would be unacceptable to you, or to anyone else whose information is
-in the file. Files not attached to a message within about an hour are deleted.
+An uploaded file is served from a URL containing a random identifier, and anyone
+holding the full URL can retrieve the file without signing in. Uploading
+requires an account; sharing the URL shares access. Do not upload material where
+that would be unacceptable to you, or to anyone else whose information is in the
+file. Files not attached to a message within about an hour are deleted.
 
 
 -------------------------------------------------------------------------------
-5. AI AGENTS — PLEASE READ THIS SECTION CAREFULLY
+5. AI AGENTS — READ THIS SECTION
 -------------------------------------------------------------------------------
 
-5.1 What agents are. An agent is an AI participant in a channel. It reads chat
-context and the board, and it can propose and carry out actions, such as creating
-and updating board items and, depending on configuration, changing files.
+An agent is an AI participant in a channel. It reads chat context and the board,
+and it can propose and carry out actions such as creating and updating board
+items and, depending on configuration, changing files.
 
-5.2 Third-party providers. Agents are powered by third-party AI services —
-Google's Gemini or Anthropic's Claude, depending on configuration. Message text,
-board context and any images routed to an agent are sent to that provider. Your
-use of agents is therefore also subject to that provider's acceptable use policy,
-and we may have to suspend or change agent features if a provider changes its
-terms, pricing or availability.
+Agents are powered by third-party AI services — Google's Gemini or Anthropic's
+Claude, depending on configuration. Message text, board context and any images
+routed to an agent are sent to that provider, so your use of agents is also
+subject to that provider's acceptable use policy. We may have to suspend or
+change agent features if a provider changes its terms, pricing or availability.
 
-5.3 Output is not reliable. Agent output may be wrong, incomplete, out of date or
-fabricated, and may be stated confidently while being wrong. It is not
-professional, legal, financial, medical or engineering advice. You must review
-agent output before relying on it or acting on it. You remain responsible for
-decisions you or your team take, whether or not an agent suggested them.
+5.1 Agent output is not reliable
 
-5.4 The approval model, and its limits. convyio is designed so that an agent's
-changes are gated: a mutating action must correspond to a board item that a human
-has approved, whose declared scope covers the thing being changed, and actions
-that are not known to be read-only are refused by default.
+Agent output may be wrong, incomplete, out of date or fabricated, and may be
+stated confidently while being wrong. It is not professional, legal, financial,
+medical or engineering advice. Review agent output before relying on it or acting
+on it. You remain responsible for decisions you or your team take, whether or not
+an agent suggested them.
 
-  IMPORTANT LIMITATION: where a workspace is configured to use the Claude
-  provider, that provider's own file-writing, file-editing and shell command
-  tools operate alongside the board tools and are NOT gated by board approval.
-  In that configuration, an agent can change files and run commands without a
-  human approving a board item first.
+5.2 The approval model, and where it does not hold
 
-If you enable an agent, you accept this. Before you do, assume the agent may
-modify or delete files and run commands in the environment you have given it
-access to, and accordingly:
+convyio is designed so an agent's changes are gated: a mutating action must
+correspond to a board item a human has approved, whose declared scope covers the
+thing being changed, and anything not known to be read-only is refused by
+default.
 
-  - only give an agent access to an environment where that is acceptable;
-  - keep version control and independent backups of anything it can reach;
-  - never place credentials, secrets or production access in an agent-accessible
-    environment; and
-  - supervise agent activity rather than leaving it unattended.
+  IMPORTANT LIMITATION — THE CLAUDE PROVIDER. Where a workspace is configured
+  to use the Claude provider, that provider's own file-writing, file-editing
+  and shell command tools operate alongside the board tools and are NOT gated
+  by board approval. In that configuration an agent can change files and run
+  commands without a human approving a board item first. We would rather tell
+  you this plainly than let you infer a guarantee we do not currently give.
 
-To the fullest extent permitted by law, we are not liable for loss, corruption or
-unintended disclosure of data, or for other consequences, arising from actions
+If you enable an agent, you accept this. Assume the agent may modify or delete
+files and run commands in the environment you have given it access to, and act
+accordingly:
+
+  - Only give an agent access to an environment where that is acceptable.
+  - Keep version control and independent backups of anything it can reach.
+  - Never put credentials, secrets or production access in an agent-accessible
+    environment.
+  - Supervise agent activity rather than leaving it unattended.
+
+To the fullest extent permitted by law, we are not liable for loss, corruption
+or unintended disclosure of data, or other consequences, arising from actions
 taken by an agent you enabled. This does not limit our liability for the matters
-listed in clause 10.1.
+listed in section 10.
 
-[COUNSEL NOTE: This clause is the main reason we wanted a lawyer involved early.
-The gap between our documented board-approval security model and the Claude
-provider's ungated native tools is a real architectural issue, recorded as an
-accepted gap in the project's own decision log. We have written the strongest
-honest disclosure we can, but we would like to know whether you think disclosure
-plus a liability cap is adequate, or whether the Claude configuration should stay
-disabled for external users until those tools are gated. Please also advise
-whether an explicit in-product acknowledgement is needed at the point of enabling
-an agent.]
-
-5.5 Agents are not people. An agent is not a legal person, cannot enter
-agreements on your behalf, and its statements in a channel are not
-representations by us.
+An agent is not a legal person, cannot enter agreements on your behalf, and its
+statements in a channel are not representations by us.
 
 
 -------------------------------------------------------------------------------
@@ -203,86 +168,82 @@ representations by us.
 
 You must not:
 
-  (a) break the law, infringe intellectual property, or breach anyone's privacy
-      or confidentiality;
-  (b) upload malware, or use the Service to attack, probe or gain unauthorised
-      access to any system, including ours;
-  (c) attempt to bypass authentication, access another user's account or
-      workspace, or read data you have not been granted access to, including by
-      guessing or enumerating upload URLs;
-  (d) use agents to generate content that is unlawful, harassing, hateful,
-      sexually exploitative, or designed to deceive or defraud, or to circumvent
-      an AI provider's safety measures;
-  (e) reverse engineer, scrape or resell the Service, or use it to build a
-      competing product;
-  (f) place unreasonable load on the Service, or evade rate limits, quotas or
-      usage restrictions;
-  (g) use the Service for automated bulk messaging, spam, or financial or crypto
-      promotion; or
-  (h) misrepresent yourself or impersonate another person, including by choosing
-      a display name intended to deceive.
+  - break the law, infringe intellectual property, or breach anyone's privacy or
+    confidentiality;
+  - upload malware, or use the Service to attack, probe or gain unauthorised
+    access to any system, including ours;
+  - attempt to bypass authentication, reach another user's account or workspace,
+    or read data you have not been granted access to, including by guessing or
+    enumerating upload URLs;
+  - use agents to generate content that is unlawful, harassing, hateful,
+    sexually exploitative or designed to deceive or defraud, or to circumvent an
+    AI provider's safety measures;
+  - reverse engineer, scrape or resell the Service, or use it to build a
+    competing product;
+  - place unreasonable load on the Service, or evade rate limits, quotas or
+    usage restrictions;
+  - use the Service for automated bulk messaging, spam, or financial or crypto
+    promotion; or
+  - misrepresent yourself or impersonate another person, including by choosing a
+    display name intended to deceive.
 
 We may investigate suspected breaches and cooperate with law enforcement where
 legally required.
-
-[COUNSEL NOTE: Please advise whether to keep 6(e)'s competing-product
-restriction. It is common, but it can be unenforceable against consumers and is
-unpopular with developer audiences, who are our users.]
 
 
 -------------------------------------------------------------------------------
 7. FEES
 -------------------------------------------------------------------------------
 
-The Service is currently provided free of charge. We may introduce charges in
-future. If we do, we will give you at least 30 days' notice, and you will not be
-charged unless you choose a paid plan.
-
-[COUNSEL NOTE: When paid plans arrive this clause needs replacing in full:
-prices, billing period, VAT, auto-renewal, price-change notice, refunds, the
-consumer 14-day cancellation right under the Consumer Contracts Regulations 2013
-and the express waiver needed to begin the service immediately, and what happens
-to data on non-payment. Flagged now rather than retrofitted later.]
+The Service is currently free. We may introduce charges in future; if we do, we
+will give you at least 30 days' notice, and you will not be charged unless you
+choose a paid plan.
 
 
 -------------------------------------------------------------------------------
 8. SUSPENSION AND TERMINATION
 -------------------------------------------------------------------------------
 
-8.1 You may stop using the Service at any time, and you can delete your account
-yourself from within the application. Deletion is permanent and cannot be undone.
-What it removes, and what remains in shared channels and the board audit log, is
-described in the Privacy Policy. Export anything you want to keep before you
-delete.
+You may stop using the Service at any time, and you can delete your account
+yourself from within the application. Deletion is permanent and cannot be
+undone.
 
-8.2 We may suspend or terminate your access if you materially breach these terms,
-if your use creates a legal or security risk to us or to other users, or if we are
-required to by law or by one of our providers. Except where the breach is serious
-or unlawful, or where notice would increase the risk, we will tell you what the
-problem is and give you a reasonable opportunity to fix it before we terminate.
+  DELETING YOUR ACCOUNT REMOVES THE ACCOUNT, NOT WHAT YOU POSTED. Your messages
+  remain in the channels where you posted them, and the board audit log keeps
+  its record of your board actions, both visible to the other members of that
+  workspace. Delete anything you want gone before you delete your account, and
+  export anything you want to keep. The Privacy Policy explains why we work
+  this way.
 
-8.3 On termination by us under clause 8.2, your right to use the Service ends,
-and you may ask us for a copy of Your Content within 30 days, after which we may
-delete it, subject to the retention practices in the Privacy Policy. If you delete
-your own account under clause 8.1, deletion takes effect immediately and this
-grace period does not apply. In either case, shared workspace records may be
-retained by the remaining members of that workspace.
+We may suspend or terminate your access if you materially breach these terms, if
+your use creates a legal or security risk to us or other users, or if we are
+required to by law or by one of our providers. Except where the breach is
+serious or unlawful, or where notice would increase the risk, we will tell you
+what the problem is and give you a reasonable opportunity to fix it first.
 
-8.4 Clauses that by their nature should survive termination do so, including
-clauses 4.1, 4.4, 9, 10, 11 and 13.
+On termination by us, your right to use the Service ends and you may ask us for
+a copy of Your Content within 30 days, after which we may delete it, subject to
+the retention practices in the Privacy Policy. If you delete your own account,
+deletion takes effect immediately and this grace period does not apply. Either
+way, shared workspace records may be retained by the remaining members of that
+workspace.
+
+Clauses that by their nature should survive termination do so, including those
+on ownership of Your Content, your responsibilities, disclaimers, liability,
+intellectual property, and governing law.
 
 
 -------------------------------------------------------------------------------
 9. DISCLAIMERS
 -------------------------------------------------------------------------------
 
-The Service is provided "as is". To the fullest extent permitted by law, we
+The Service is provided "as is". To the fullest extent permitted by law we
 exclude all implied warranties, including fitness for a particular purpose, and
 any warranty that the Service will be uninterrupted, error-free or secure, or
 that agent output will be accurate.
 
-Nothing in these terms excludes or limits rights you have as a consumer under the
-Consumer Rights Act 2015, or under any other law that cannot be excluded,
+Nothing in these terms excludes or limits rights you have as a consumer under
+the Consumer Rights Act 2015, or under any other law that cannot be excluded —
 including the right to have services supplied with reasonable care and skill.
 
 
@@ -290,47 +251,35 @@ including the right to have services supplied with reasonable care and skill.
 10. LIABILITY
 -------------------------------------------------------------------------------
 
-10.1 We do not exclude or limit our liability for death or personal injury caused
-by our negligence, for fraud or fraudulent misrepresentation, or for anything
-else that cannot lawfully be excluded or limited.
+We do not exclude or limit our liability for death or personal injury caused by
+our negligence, for fraud or fraudulent misrepresentation, or for anything else
+that cannot lawfully be excluded or limited.
 
-10.2 Subject to 10.1, and to the fullest extent permitted by law, we are not
-liable for loss of profits, revenue, business, goodwill or anticipated savings;
-loss or corruption of data, except where caused by our failure to exercise
-reasonable care and skill; business interruption; or any indirect or consequential
-loss.
+Subject to that, and to the fullest extent permitted by law, we are not liable
+for loss of profits, revenue, business, goodwill or anticipated savings; loss or
+corruption of data, except where caused by our failure to exercise reasonable
+care and skill; business interruption; or any indirect or consequential loss.
 
-10.3 Subject to 10.1, our total liability arising out of or in connection with
-these terms is limited to the greater of (a) the total amount you paid us for the
-Service in the 12 months before the claim arose, and (b) [[£100]].
+Subject to the same, our total liability arising out of or in connection with
+these terms is limited to the greater of the total amount you paid us for the
+Service in the 12 months before the claim arose, and £100.
 
-[COUNSEL NOTE: While the Service is free, limb (a) is nil, so the cap is
-effectively the fixed figure, and we have left it bracketed because we would
-rather you set it than have us guess. Please advise what figure is defensible
-against a consumer under the unfair terms provisions of the CRA 2015, whether a
-separate and higher cap is needed for business users, and how this interacts with
-Harris contracting personally.]
-
-10.4 If you are a business user, you will indemnify us against claims,
-liabilities and reasonable costs arising from Your Content, from your breach of
-clause 6, or from your use of agents in breach of clause 5. This clause does not
-apply to consumers.
+If you are a business user, you will indemnify us against claims, liabilities
+and reasonable costs arising from Your Content, from your breach of section 6, or
+from your use of agents in breach of section 5. This does not apply to
+consumers.
 
 
 -------------------------------------------------------------------------------
 11. INTELLECTUAL PROPERTY
 -------------------------------------------------------------------------------
 
-11.1 We own the Service, including its software, design and branding, and nothing
-in these terms transfers those rights to you. We grant you a limited, revocable,
+We own the Service, including its software, design and branding, and nothing in
+these terms transfers those rights to you. We grant you a limited, revocable,
 non-transferable right to use the Service in accordance with these terms.
 
-11.2 [[Confirm whether any part of convyio is distributed under an open-source
-licence, and whether third-party dependency licences require an attribution
-notice we should link here.]]
-
-11.3 Feedback. If you send us suggestions, we may use them without obligation or
-payment to you. We will not identify you as the source without your permission.
+If you send us suggestions, we may use them without obligation or payment to
+you. We will not identify you as the source without your permission.
 
 
 -------------------------------------------------------------------------------
@@ -338,8 +287,8 @@ payment to you. We will not identify you as the source without your permission.
 -------------------------------------------------------------------------------
 
 We may change these terms. For material changes we will give you at least 30
-days' notice, by email or in the Service. If you do not accept a change, you may
-stop using the Service and delete your account before the change takes effect.
+days' notice, by email or in the Service. If you do not accept a change you may
+stop using the Service and delete your account before it takes effect.
 Continuing to use the Service after a change takes effect means you accept the
 new terms.
 
@@ -348,37 +297,32 @@ new terms.
 13. GENERAL AND GOVERNING LAW
 -------------------------------------------------------------------------------
 
-13.1 These terms are governed by the law of England and Wales.
+These terms are governed by the law of England and Wales.
 
-13.2 The courts of England and Wales have exclusive jurisdiction, except that if
-you are a consumer resident elsewhere in the UK or in the EEA, you may also bring
+The courts of England and Wales have exclusive jurisdiction, except that if you
+are a consumer resident elsewhere in the UK or in the EEA you may also bring
 proceedings in the courts of your country of residence, and you keep the benefit
 of any mandatory consumer protections there.
 
-13.3 We will try to resolve any dispute informally first. Please contact
+We will try to resolve any dispute informally first — please contact
 hello@convyio.com before starting proceedings.
 
-13.4 If a provision is found unenforceable, the rest remains in force, and the
-unenforceable provision is modified to the minimum extent necessary.
+If a provision is found unenforceable, the rest remains in force and that
+provision is modified to the minimum extent necessary. We may transfer our
+rights and obligations under these terms to another person or organisation,
+including on incorporation of a company to operate convyio, and we will tell you
+if we do; you may not transfer yours without our written consent.
 
-13.5 We may transfer our rights and obligations under these terms to another
-person or organisation, including on incorporation of a company to operate
-convyio, and we will tell you if we do. You may not transfer yours without our
-written consent.
-
-13.6 These terms, together with the Privacy Policy, are the entire agreement
-between us about the Service, and supersede any prior arrangements. This does not
-limit liability for fraudulent misrepresentation.
-
-13.7 No one other than you and us has any right to enforce these terms.
-
-13.8 A delay in enforcing a term is not a waiver of it.
+These terms, together with the Privacy Policy, are the entire agreement between
+us about the Service and supersede any prior arrangements — which does not limit
+liability for fraudulent misrepresentation. No one other than you and us may
+enforce them, and a delay in enforcing a term is not a waiver of it.
 
 
 -------------------------------------------------------------------------------
 14. CONTACT
 -------------------------------------------------------------------------------
 
-  Harris Asif, operating as convyio
-  hello@convyio.com — for all enquiries, including privacy and security
-  [[POSTAL ADDRESS, per the counsel note in clause 1]]
+  convyio:  Harris Asif, operating as convyio
+  Email:    hello@convyio.com — for all enquiries, including privacy and
+            security
