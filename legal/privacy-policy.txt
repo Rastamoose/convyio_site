@@ -1,0 +1,496 @@
+CONVYIO — PRIVACY POLICY
+========================
+
+STATUS: DRAFT FOR LEGAL REVIEW. NOT YET IN FORCE. DO NOT PUBLISH AS-IS.
+Prepared: 13 August 2026
+Drafting basis: UK GDPR / EU GDPR-first. convyio is operated by an individual,
+Harris Asif, as a single hosted service. No registered company at this time.
+
+Items in [[DOUBLE BRACKETS]] are facts still to be supplied or verified. Items
+marked "[COUNSEL NOTE: ...]" are questions for the reviewing solicitor and must
+be deleted before publication. Open issues, including several that are
+engineering work rather than drafting work, are listed in README-FOR-COUNSEL.txt
+in this directory.
+
+
+-------------------------------------------------------------------------------
+1. WHO WE ARE
+-------------------------------------------------------------------------------
+
+convyio is a team chat product in which AI agents participate as members of a
+channel alongside human users. This policy explains what personal data we
+collect when you use the convyio application and the convyio website, why we
+collect it, who we share it with, and what rights you have.
+
+The person responsible for your personal data — the "data controller" — is:
+
+  Harris Asif, operating as convyio
+  Contact: hello@convyio.com
+  [[POSTAL ADDRESS FOR DATA PROTECTION CORRESPONDENCE]]
+
+  [[ICO registration number, once confirmed]]
+  [[EU or UK representative under Article 27, if required]]
+
+[COUNSEL NOTE: There is no registered company, so Harris Asif is personally the
+controller and personally the counterparty to the Terms of Service. Three things
+we need from you. (1) The minimum identity details we must publish: Art.
+13(1)(a)-(b) requires the controller's identity and contact details, and we would
+like to know whether a name and email suffice or whether a postal address is
+required — and if so, whether a correspondence-only address is acceptable rather
+than a home address. (2) Whether ICO registration and the data protection fee
+apply. (3) Whether an Art. 27 representative is needed given we accept users from
+both the UK and the EEA. Separately, and more importantly than the drafting:
+operating unincorporated means the liability cap in the Terms is the only thing
+between Harris personally and any claim. We would value a direct view on whether
+to incorporate before promoting the product further.]
+
+In this policy, "the Service" means the convyio application; "the Site" means
+the convyio website at https://convyio.com. They collect different data, and we
+describe them separately where that matters.
+
+[COUNSEL NOTE: We are the controller for account and usage data. Where a
+business customer's team uses convyio to process personal data inside their own
+messages and board items, we may instead be acting as their processor. We do not
+currently offer a data processing agreement. Please advise whether we need one,
+with transfer annexes, before onboarding UK or EEA business customers.]
+
+
+-------------------------------------------------------------------------------
+2. PERSONAL DATA WE COLLECT
+-------------------------------------------------------------------------------
+
+2.1 Account and identity data
+
+We use Supabase Auth for authentication. You can sign up with an email address
+and password, or, where enabled, sign in with your Google account.
+
+We store:
+
+  - Your email address.
+  - Your Supabase Auth user ID, which we use as your identifier in our database.
+  - Your display name, which you choose when you first sign in. Display names
+    are 1-32 characters and may contain letters, digits, spaces, hyphens and
+    underscores. Your display name is permanent once set.
+  - Optionally, a "desired username" hint you may supply during email sign-up.
+
+We do not store your password, and we do not store or receive your Google
+credentials. Authentication is handled entirely by Supabase Auth; our server
+only ever receives the resulting signed token and re-verifies it. If you sign in
+with Google, Google will see your email address and basic profile information as
+part of that sign-in.
+
+2.2 Content you create in the Service
+
+Everything you create in convyio is stored in our database, hosted by Supabase,
+and, for files, in Supabase Storage. This includes:
+
+  - Messages: the message text, the channel it was posted in, the author's name,
+    identifier and kind (human or agent), timestamps, any edits, and reply
+    relationships between messages.
+  - Reactions: the emoji used and who reacted.
+  - Board items: proposals, approvals, descriptions, status changes, and the
+    scope paths each item covers.
+  - Board events: an append-only audit log of every change made to the board.
+  - Channels: the channel name, who created it, and whether it is archived or
+    pinned.
+  - File uploads: the original filename, MIME type, file size, image dimensions
+    where applicable, and the file contents themselves.
+
+Messages, board items and the board audit log are shared workspace records. They
+are visible to other members of the workspace or channel, and they are not
+automatically removed when you stop using the Service. Sections 8 and 9 explain
+what happens to them when you delete your account.
+
+2.3 Uploaded files, and an important limitation on how they are protected
+
+Files you upload are stored in a private storage bucket and served back to your
+browser through our own server, at a URL of the form:
+
+  /api/uploads/<random-id>/<filename>
+
+You must be signed in to upload a file. But once a file exists, the URL itself
+acts as the key to it: the identifier in the URL is a randomly generated UUID,
+and anyone holding that full URL can retrieve the file without signing in. This
+follows from how browsers display images — an <img> tag cannot send an
+authorisation header, so the unguessability of the URL is what protects the file.
+
+In practice this means sharing an upload URL shares access to the file. Treat
+these URLs as secrets. Do not upload material through convyio that would cause
+harm if the URL were forwarded, pasted into another tool, or captured in a
+browser history or referrer log.
+
+Files uploaded but never attached to a message are deleted automatically about
+one hour after upload.
+
+[COUNSEL NOTE: This is a real characteristic of the running system, not a
+hypothetical one. We have chosen to disclose it plainly. Please confirm the
+disclosure is adequate and whether it should be repeated in the interface at the
+point of upload.]
+
+2.4 Technical and session data
+
+  - Authentication tokens issued by Supabase are stored in your browser. With
+    "Remember me" left ticked (the default), they are stored in localStorage and
+    persist between visits. If you untick it, they are stored in sessionStorage
+    and discarded when you close the tab.
+  - A "remember me until" timestamp is stored in your browser. A remembered
+    session expires after 30 days of inactivity.
+  - Our server keeps a cache of verified tokens for up to 60 seconds, so that
+    reconnections and bursts of API calls do not each require re-verification
+    against Supabase.
+  - The bearer tokens used for our own API are held only in server memory,
+    expire after 12 hours, and are revoked when your last connection closes.
+  - Our infrastructure providers process standard connection data — IP address,
+    timestamps, user agent, request paths — in server and network logs, in order
+    to operate and secure the Service. [[Confirm actual log retention periods at
+    Railway and Supabase and state them here rather than asserting a figure we
+    have not verified.]]
+
+2.5 Data collected on the Site
+
+The Site is separate from the Service, and collects:
+
+  - Waitlist and enquiry submissions. If you submit the early-access form, we
+    collect your email address, which AI agents your team uses (including any
+    free-text "other" answer), where your team currently talks (including any
+    free-text "other" answer), and your free-text answer about agent visibility.
+    These are delivered to us through Formspree.
+  - Product analytics. We use PostHog to understand how the Site is used. We
+    record page views, whether the demo was scrolled to, played or completed,
+    focus and submission of the email form, and clicks on calls to action,
+    together with the page URL, the referring URL, and any UTM campaign
+    parameters in the link you arrived through. PostHog also assigns your browser
+    a pseudonymous identifier so repeat visits can be recognised.
+
+[COUNSEL NOTE: Two things to resolve. (1) PostHog's autocapture is at its
+default, so it may also record clicks and element text beyond the named events
+above; we should either disable autocapture or broaden this description to match
+what actually happens. (2) The Site currently loads PostHog on page load with no
+consent banner. Under PECR and the ePrivacy Directive, analytics storage of this
+kind normally needs prior consent. Section 7 is drafted on the assumption that we
+must add a consent mechanism; please confirm.]
+
+2.6 Data we do not collect
+
+We do not collect special category data, government identifiers, payment card
+details, or precise location data. We do not use advertising trackers. We do not
+sell personal data, and we do not share it for cross-context behavioural
+advertising.
+
+
+-------------------------------------------------------------------------------
+3. HOW AI AGENTS USE YOUR DATA
+-------------------------------------------------------------------------------
+
+convyio's distinguishing feature is that AI agents are members of channels. You
+should understand what that means for your data.
+
+When an agent is active in your workspace:
+
+  - It can read the chat context of the channel it is in, and the contents of
+    the board.
+  - If a message containing images is routed to the agent, those images are sent
+    to the agent's underlying AI provider.
+  - It keeps a rolling "memory" and a record of its pending proposals.
+  - It proposes actions on the board, which are recorded as board items and
+    board events.
+
+The text and images sent to an agent are transmitted to a third-party AI
+provider in order to generate the response. Depending on how the workspace is
+configured, that provider is either Google (Gemini) or Anthropic (Claude). Their
+handling of that data is governed by their own terms, and they are listed in
+section 5.
+
+Do not put anything into a channel where an agent is present that you are not
+willing to send to that provider. That includes credentials, client confidential
+information you are not permitted to disclose to subprocessors, and other
+people's personal data that you have no lawful basis to share.
+
+Agents do not make automated decisions about you that produce legal effects or
+similarly significant effects, within the meaning of Article 22. Agent proposals
+that change the board or files are subject to the approval model described in
+the Terms of Service — including the limitation, disclosed there, that the
+Claude provider's native file and shell tools are not gated by board approval.
+
+
+-------------------------------------------------------------------------------
+4. WHY WE USE YOUR DATA, AND OUR LAWFUL BASIS
+-------------------------------------------------------------------------------
+
+Purpose                                   | Data used                    | Lawful basis
+------------------------------------------+------------------------------+-------------------------------
+Creating and authenticating your account  | Email, auth user ID,         | Performance of a contract
+                                          | display name                 | (Art. 6(1)(b))
+Providing the chat, channel, board and    | Content data in 2.2          | Performance of a contract
+upload features                           |                              | (Art. 6(1)(b))
+Generating agent responses and proposals  | Message text, board context, | Performance of a contract
+                                          | uploaded images              | (Art. 6(1)(b))
+Maintaining the board audit log           | Board events, actor IDs      | Legitimate interests
+                                          |                              | (Art. 6(1)(f)) — integrity and
+                                          |                              | accountability of a shared
+                                          |                              | workspace record
+Securing the Service, preventing abuse,   | Session and technical data,  | Legitimate interests
+diagnosing faults                         | server logs                  | (Art. 6(1)(f))
+Responding to your waitlist enquiry and   | Site form submissions        | Legitimate interests, or
+telling you when access opens              |                              | consent where required for
+                                          |                              | marketing (Art. 6(1)(f)/(a))
+                                          |                              | [[confirm the PECR soft opt-in
+                                          |                              | position for launch emails]]
+Site analytics                            | PostHog data in 2.5          | Consent (Art. 6(1)(a)), plus
+                                          |                              | PECR reg. 6 consent for storage
+Complying with legal obligations and      | As required                  | Legal obligation (Art. 6(1)(c))
+lawful requests                           |                              | / legitimate interests
+
+[COUNSEL NOTE: Please sanity-check the legitimate interests entries, and tell us
+whether we need documented legitimate interests assessments on file for the
+audit log and security purposes.]
+
+
+-------------------------------------------------------------------------------
+5. WHO WE SHARE DATA WITH
+-------------------------------------------------------------------------------
+
+We do not sell your personal data. We share it with the following providers,
+who process it on our behalf except where noted:
+
+  - Supabase — authentication, the Postgres database, and file storage. All
+    account and content data described in 2.1 and 2.2 is stored with Supabase.
+    Processor.
+  - Railway — hosting and running the application. Processor.
+  - Vercel — hosting the Site. Processor.
+  - Google — (a) Google Sign-In, where enabled, allowing you to authenticate
+    with your Google account, for which Google acts as an independent
+    controller; and (b) the Gemini API, where a workspace is configured to use
+    Gemini as its agent provider.
+  - Anthropic — the Claude service, where a workspace is configured to use
+    Claude as its agent provider.
+  - PostHog — product analytics on the Site. Processor.
+  - Formspree — delivery of Site form submissions to us. Processor.
+
+We may also disclose data where legally required, to establish or defend legal
+claims, or to a buyer or successor if the product is sold or transferred, in
+which case we will tell you before your data becomes subject to a different
+privacy policy.
+
+[[Add a link to each provider's current privacy notice. Confirm that data
+processing agreements with Supabase, Railway, Vercel, PostHog and Formspree are
+executed — we believe these are all available but have not confirmed they are in
+place.]]
+
+[COUNSEL NOTE: We would like your view on whether the AI providers should be
+described as processors or as independent controllers, and on whether the
+default retention and model-training settings on the API tiers we use are
+acceptable. We have not yet verified which tier we are on, or whether inputs may
+be retained or used for model improvement, and we do not want to make a claim
+here that we cannot support.]
+
+
+-------------------------------------------------------------------------------
+6. INTERNATIONAL TRANSFERS
+-------------------------------------------------------------------------------
+
+Several of our providers are established in, or process data in, the United
+States and other countries outside the UK and EEA. Where we transfer personal
+data outside the UK or EEA, we rely on:
+
+  - the UK International Data Transfer Agreement, or the UK Addendum to the
+    European Commission's Standard Contractual Clauses, and the EU Standard
+    Contractual Clauses, as applicable; or
+  - an adequacy decision, where one covers the receiving country or the
+    provider's certification.
+
+[[Confirm which mechanism applies per provider, and where each provider's data
+region is set. The Supabase project region and the Railway region should be
+stated here. If both can be pinned to the EU, this section becomes materially
+simpler, and we should consider doing that before launch.]]
+
+You can request a copy of the relevant safeguards by emailing
+hello@convyio.com.
+
+
+-------------------------------------------------------------------------------
+7. COOKIES AND SIMILAR TECHNOLOGIES
+-------------------------------------------------------------------------------
+
+The Service does not use advertising or analytics cookies. The only persistent
+data it stores in your browser is your Supabase authentication token and the
+"remember me" expiry timestamp described in 2.4. These are strictly necessary to
+keep you signed in and cannot be turned off without making the Service unusable.
+
+The Site uses PostHog analytics, which stores an identifier in your browser.
+This is not strictly necessary, and we will only set it where you have
+consented. You can withdraw consent at any time using the cookie settings link
+in the Site footer.
+
+[COUNSEL NOTE: As flagged in 2.5, the consent mechanism described in this
+paragraph does not exist yet. It must be built before this policy is published,
+or this paragraph is untrue.]
+
+
+-------------------------------------------------------------------------------
+8. HOW LONG WE KEEP DATA, AND DELETING YOUR ACCOUNT
+-------------------------------------------------------------------------------
+
+8.1 Deleting your account
+
+You can delete your account yourself, at any time, from within the application.
+Deletion is permanent: we cannot restore a deleted account, and you should
+export anything you want to keep before you delete.
+
+Deleting your account removes your account record and your sign-in credentials.
+You can no longer access the Service, and we no longer hold your email address.
+
+Deleting your account does not delete the content you posted. Your messages stay
+in the channels where you posted them, and the board audit log keeps its record
+of the board actions you took. Both remain visible to the other members of that
+workspace. We keep them because they are shared records: removing one person's
+messages would tear holes in conversations other people are still relying on, and
+the board audit log is append-only by design, because its value is that it cannot
+be rewritten after the fact.
+
+Be clear about what this means before you post: deleting your account ends your
+relationship with us, but it does not retract what you said. If you want specific
+content removed, delete it yourself before deleting your account, or ask us at
+hello@convyio.com and we will consider the request under section 9.
+
+[[Confirm the backup window: how long deleted data persists in provider-level
+backups before it is overwritten.]]
+
+8.2 Retention of everything else
+
+  - Messages, reactions, board items, board events, channels and account records
+    are kept until deleted. Some of these are shared workspace records, and are
+    not removed merely because you stop using the Service.
+  - Uploaded files are kept for as long as the message they are attached to
+    exists.
+  - Files uploaded but never attached to a message are deleted after
+    approximately one hour.
+  - "Remember me" sessions expire after 30 days of inactivity.
+  - Server-side API tokens expire after 12 hours, or when your last connection
+    closes.
+  - Site waitlist submissions are kept for 24 months from submission, or until
+    you ask us to delete them, whichever is sooner.
+  - PostHog analytics data is kept for [[PostHog project retention setting —
+    confirm and state]].
+
+8.3 Data export
+
+There is not yet a self-service export. Email hello@convyio.com and we will
+provide your data in a portable format within one month, as the law requires.
+
+[COUNSEL NOTE: This is the most important thing in the document for you to rule
+on. Our product decision is that account deletion removes the account only:
+messages and board events are retained, for the reasons stated in 8.1. That is a
+deliberate choice about the integrity of a shared workspace, and it is what the
+software does. But it means we do not fully honour an Art. 17 erasure request in
+respect of message content, and our justification has to stand on its own — most
+plausibly Art. 17(1)(a)/(3) arguments about continued necessity, the legitimate
+interests of other workspace members, and the append-only audit log as a record
+we have a legitimate interest in keeping intact. Please tell us (a) whether that
+justification holds for messages as well as for board events, given messages are
+free-form and may contain far more personal data than a board event; (b) whether
+we must at minimum offer de-identification of the author name on request, rather
+than only outright retention; and (c) whether the pre-posting warning in 8.1 is
+sufficiently prominent, or whether it needs to appear in the interface at the
+point of account deletion, which is where a user will actually be thinking about
+it. Separately: an account that is abandoned rather than deleted is currently
+retained indefinitely, which is hard to reconcile with storage limitation under
+Art. 5(1)(e), and we would like a defensible dormancy period to commit to.]
+
+
+-------------------------------------------------------------------------------
+9. YOUR RIGHTS
+-------------------------------------------------------------------------------
+
+Under UK and EU data protection law you have the right to:
+
+  - access a copy of the personal data we hold about you;
+  - have inaccurate data corrected;
+  - have your data erased, in certain circumstances;
+  - restrict how we process your data, in certain circumstances;
+  - receive your data in a portable format, where processing is based on consent
+    or contract and carried out by automated means;
+  - object to processing based on our legitimate interests;
+  - withdraw consent at any time, where we rely on consent; and
+  - not be subject to solely automated decisions producing legal or similarly
+    significant effects. We do not make such decisions.
+
+You can delete your account yourself in the application at any time. For
+everything else, including erasure of specific content, email hello@convyio.com.
+We will respond within one month. We may need to verify your identity first, and
+we will explain if a legal exemption means we cannot fully comply.
+
+We should be direct about one limit on the right to erasure. As explained in
+section 8, deleting your account does not delete your messages or the board
+audit log, because those are shared records that other members of the workspace
+rely on and, in the case of the audit log, are append-only by design. If you ask
+us to erase specific content, we will consider it on its facts and tell you what
+we have done and why. Where we can, we will prefer removing or de-identifying
+content over refusing outright. Where we conclude that we are entitled to keep
+it, we will say so plainly and explain your right to challenge that.
+
+If you are unhappy with how we have handled your data, you can complain to the
+Information Commissioner's Office at ico.org.uk, or, if you are in the EEA, to
+your local supervisory authority. We would appreciate the chance to put it right
+first.
+
+
+-------------------------------------------------------------------------------
+10. SECURITY
+-------------------------------------------------------------------------------
+
+Our measures include:
+
+  - Every database table has row-level security enabled with no permissive
+    policies, so access through the database's public data API is denied
+    outright. The application server connects directly with a privileged
+    credential and is the only route to the data.
+  - Access to a workspace requires a verified Supabase session for humans;
+    agents require an agent token or an invite, and invites can be revoked.
+  - File storage is a private bucket, served only through our own authenticated
+    upload endpoint, subject to the URL limitation described in 2.3.
+  - The board acts as a permission boundary for agent actions: a mutating agent
+    action must correspond to an approved or in-progress board item whose
+    declared scope covers the path being changed, and unknown tools are treated
+    as mutating and refused. Note the exception for the Claude provider,
+    disclosed in the Terms of Service.
+  - Data is encrypted in transit, and encrypted at rest by our infrastructure
+    providers.
+
+No system is perfectly secure. If we become aware of a personal data breach
+presenting a risk to you, we will notify the relevant supervisory authority
+within 72 hours where required, and notify you where the law requires it.
+
+[[We do not currently have a documented incident response process. One is needed
+to support this commitment.]]
+
+
+-------------------------------------------------------------------------------
+11. CHILDREN
+-------------------------------------------------------------------------------
+
+The Service is not intended for anyone under 16, and you must be at least 16 to
+create an account. We do not knowingly collect personal data from children under
+16. If you believe a child under 16 has given us personal data, email
+hello@convyio.com and we will delete it.
+
+
+-------------------------------------------------------------------------------
+12. CHANGES TO THIS POLICY
+-------------------------------------------------------------------------------
+
+We may update this policy. If a change materially affects how we use your
+personal data, we will tell you by email or in the Service before it takes
+effect. The date at the top shows when this policy was last revised, and we will
+provide earlier versions on request.
+
+
+-------------------------------------------------------------------------------
+13. CONTACT
+-------------------------------------------------------------------------------
+
+For any question about this policy, or to exercise your rights:
+
+  Harris Asif, operating as convyio
+  hello@convyio.com
+  [[POSTAL ADDRESS, per the counsel note in section 1]]
