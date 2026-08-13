@@ -1,9 +1,5 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js",
-  "/terms/page": "app/terms/page.js",
-  "/v2/page": "app/v2/page.js",
-  "/privacy/page": "app/privacy/page.js",
-  "/icon/route": "app/icon/route.js",
-  "/opengraph-image/route": "app/opengraph-image/route.js"
+  "/icon/[[...__metadata_id__]]/route": "app/icon/[[...__metadata_id__]]/route.js",
+  "/terms/page": "app/terms/page.js"
 }
