@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/icon',
+    icon: '/favicon.svg',
   },
 };
 
