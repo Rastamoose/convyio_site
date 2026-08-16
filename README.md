@@ -49,6 +49,7 @@ vercel --prod dist/
 | Variable | Purpose |
 | --- | --- |
 | `NEXT_PUBLIC_FORMSPREE_ENDPOINT` | Email capture endpoint |
+| `NEXT_PUBLIC_APP_URL` | Product app origin for the sign-in/sign-up links (default `https://app.convyio.com`) |
 | `NEXT_PUBLIC_POSTHOG_KEY` | PostHog project API key |
 | `NEXT_PUBLIC_POSTHOG_HOST` | PostHog host (default `https://us.i.posthog.com`) |
 | `NEXT_PUBLIC_SITE_URL` | Canonical URL for sitemap/OG |

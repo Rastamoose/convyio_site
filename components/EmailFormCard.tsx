@@ -2,7 +2,6 @@ import { Ref } from 'react';
 import { EmailForm } from './EmailForm';
 
 interface EmailFormCardProps {
-  location: 'hero' | 'closing' | 'modal';
   headingId?: string;
   onClose?: () => void;
   closeBtnRef?: Ref<HTMLButtonElement>;
@@ -10,7 +9,6 @@ interface EmailFormCardProps {
 }
 
 export function EmailFormCard({
-  location,
   headingId,
   onClose,
   closeBtnRef,
@@ -26,7 +24,7 @@ export function EmailFormCard({
             id={headingId}
             className="text-lg font-semibold tracking-[-0.01em] text-gruv-fg"
           >
-            Get in touch
+            Help shape Convyio
           </h2>
           <p className="mt-1 text-sm leading-relaxed text-gruv-fg-body">
             Tell us a bit about your team and we&rsquo;ll get back to you.
@@ -45,7 +43,7 @@ export function EmailFormCard({
           </button>
         )}
       </div>
-      <EmailForm location={location} />
+      <EmailForm location="modal" />
     </div>
   );
 }
