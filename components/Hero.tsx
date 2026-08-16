@@ -1,6 +1,6 @@
 import { COPY } from '@/lib/copy';
 import { VariantTag } from './VariantTag';
-import { EarlyAccessButton } from './EarlyAccessButton';
+import { StartUsingLink } from './AppLink';
 
 interface HeroProps {
   variant?: 'problem-aware' | 'solution-aware';
@@ -70,17 +70,17 @@ export function Hero({ variant = 'problem-aware' }: HeroProps) {
           </p>
           <div className="w-full animate-fade-up [animation-delay:120ms]">
             <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-start">
-              <EarlyAccessButton
+              <StartUsingLink
                 location="hero"
                 className="btn-3d whitespace-nowrap px-6 py-2.5"
               >
                 {COPY.hero.cta}
-              </EarlyAccessButton>
+              </StartUsingLink>
               <a
                 href="#demo"
                 className="btn-raised group gap-1.5 whitespace-nowrap px-5 py-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gruv-accent"
               >
-                See how it works
+                {COPY.hero.secondary}
                 <span
                   aria-hidden="true"
                   className="transition-transform group-hover:translate-x-0.5"

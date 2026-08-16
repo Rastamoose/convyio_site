@@ -1,5 +1,5 @@
 import { COPY } from '@/lib/copy';
-import { EarlyAccessButton } from './EarlyAccessButton';
+import { SignInLink, StartUsingLink } from './AppLink';
 
 export function ClosingBlock() {
   return (
@@ -14,9 +14,18 @@ export function ClosingBlock() {
         <p className="mb-10 text-lg leading-relaxed text-gruv-fg-body sm:text-xl">
           {COPY.closing.support}
         </p>
-        <EarlyAccessButton location="closing" className="btn-3d px-6 py-3">
+        <StartUsingLink location="closing" className="btn-3d px-6 py-3">
           {COPY.hero.cta}
-        </EarlyAccessButton>
+        </StartUsingLink>
+        <p className="mt-6 text-sm text-gruv-fg-body">
+          {COPY.closing.signIn}{' '}
+          <SignInLink
+            location="closing"
+            className="font-medium text-gruv-accent underline decoration-transparent underline-offset-4 transition-colors hover:decoration-gruv-accent"
+          >
+            Sign in
+          </SignInLink>
+        </p>
       </div>
     </section>
   );
