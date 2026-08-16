@@ -54,7 +54,7 @@ export default function OpenGraphImage() {
             color: gruvboxLight.fgMuted,
           }}
         >
-          Get early access
+          Start using Convyio
         </div>
       </div>
     ),

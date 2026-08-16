@@ -1,11 +1,17 @@
 import { COPY } from '@/lib/copy';
 import { LEGAL_CONTACT } from '@/lib/legal';
+import { APP_URL } from '@/lib/app';
+import { FeedbackButton } from './FeedbackButton';
 
 const LINKS = [
+  { href: APP_URL, label: 'Sign in' },
   { href: '/privacy', label: 'Privacy' },
   { href: '/terms', label: 'Terms' },
   { href: `mailto:${LEGAL_CONTACT}`, label: 'Contact' },
 ];
+
+const linkClass =
+  'text-gruv-fg-muted underline decoration-transparent decoration-from-font underline-offset-4 transition-colors hover:text-gruv-fg hover:decoration-gruv-fg-dark';
 
 export function Footer() {
   return (
@@ -18,22 +24,18 @@ export function Footer() {
           </a>
           <p className="text-xs text-gruv-fg-muted">{COPY.footer}</p>
         </div>
-        <nav aria-label="Legal" className="flex items-center gap-3 text-xs">
-          {LINKS.map((link, i) => (
-            <span key={link.href} className="flex items-center gap-3">
-              {i > 0 && (
-                <span aria-hidden="true" className="text-gruv-fg-dark">
-                  ·
-                </span>
-              )}
-              <a
-                href={link.href}
-                className="text-gruv-fg-muted underline decoration-transparent decoration-from-font underline-offset-4 transition-colors hover:text-gruv-fg hover:decoration-gruv-fg-dark"
-              >
+        <nav aria-label="Footer" className="flex items-center gap-3 text-xs">
+          {LINKS.map((link) => (
+            <span key={link.label} className="flex items-center gap-3">
+              <a href={link.href} className={linkClass}>
                 {link.label}
               </a>
+              <span aria-hidden="true" className="text-gruv-fg-dark">
+                ·
+              </span>
             </span>
           ))}
+          <FeedbackButton className={linkClass} />
         </nav>
       </div>
     </footer>

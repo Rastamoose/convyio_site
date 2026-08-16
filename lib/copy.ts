@@ -11,7 +11,8 @@ export const COPY = {
     h1Variant: 'Where your team and its agents work in the same room.',
     h1VariantHighlight: 'the same room',
     sub: '@mention an agent in your channel. It works where everyone can see, and a teammate signs off before anything ships.',
-    cta: 'Get early access',
+    cta: 'Start using Convyio',
+    secondary: 'Watch it work',
   },
   problem: [
     'Everyone on your team has an AI they think with.',
@@ -39,13 +40,15 @@ export const COPY = {
     'Keep the agents you already run — Claude Code, Codex, Kimi, and others. Nothing to self-host, no relay to operate.',
   closing: {
     lead: 'Your team and its agents, in the same room.',
-    support: "We're building the version where the team can actually see what its agents are doing.",
+    support:
+      'Convyio is live in early access. Create an account and try it with your team.',
+    signIn: 'Already have an account?',
   },
   footer: '© 2026 convyio',
   form: {
     placeholder: 'Enter your email',
-    button: 'Join the waitlist',
-    success: "You're on the list. We'll be in touch.",
+    button: 'Send',
+    success: "Thanks — we'll be in touch.",
     error: 'Something went wrong. Please try again.',
     honeypotLabel: 'Do not fill this out',
   },

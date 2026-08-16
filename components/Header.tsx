@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { COPY } from '@/lib/copy';
-import { EarlyAccessButton } from './EarlyAccessButton';
+import { SignInLink, StartUsingLink } from './AppLink';
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,9 +33,17 @@ export function Header() {
             className="hidden h-12 w-auto dark:block sm:h-[60px]"
           />
         </a>
-        <EarlyAccessButton location="header" className="btn-3d px-5 py-2.5">
-          {COPY.hero.cta}
-        </EarlyAccessButton>
+        <nav className="flex items-center gap-1 sm:gap-4" aria-label="Product">
+          <SignInLink
+            location="header"
+            className="hidden px-3 py-2 text-sm font-medium text-gruv-fg-body transition-colors hover:text-gruv-fg sm:block"
+          >
+            Sign in
+          </SignInLink>
+          <StartUsingLink location="header" className="btn-3d px-4 py-2.5 sm:px-5">
+            {COPY.hero.cta}
+          </StartUsingLink>
+        </nav>
       </div>
     </header>
   );

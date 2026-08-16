@@ -22,7 +22,7 @@ const AGENT_OPTIONS = [
 const CHAT_OPTIONS = ["Slack", "Discord", "Teams", "Google Chat", "Other"];
 
 interface EmailFormProps {
-  location: "hero" | "closing" | "modal";
+  location: "modal";
   className?: string;
 }
 

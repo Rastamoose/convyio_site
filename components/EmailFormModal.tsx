@@ -69,7 +69,6 @@ export function EmailFormModal({ open, onClose }: EmailFormModalProps) {
         onClick={(e) => e.stopPropagation()}
       >
         <EmailFormCard
-          location="modal"
           headingId="email-modal-heading"
           onClose={onClose}
           closeBtnRef={closeBtnRef}
