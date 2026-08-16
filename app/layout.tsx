@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
 import './globals.css';
 import { COPY } from '@/lib/copy';
@@ -40,12 +40,6 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const jetbrains = JetBrains_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-jetbrains',
-});
-
 const themeInitScript = `document.documentElement.classList.add('js');try{if(localStorage.theme==='dark'){document.documentElement.classList.add('dark')}}catch(e){}`;
 
 export default function RootLayout({
@@ -54,7 +48,7 @@ export default function RootLayout({
   children: ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrains.variable}`} suppressHydrationWarning>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body className="min-h-screen bg-gruv-bg-hard font-sans text-gruv-fg antialiased">
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <PostHogProvider>{children}</PostHogProvider>

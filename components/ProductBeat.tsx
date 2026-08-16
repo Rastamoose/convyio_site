@@ -26,7 +26,7 @@ export function ProductBeat({
       <div className={cn("space-y-4", reversed ? "lg:col-start-2" : "")}>
         <span
           className={cn(
-            "font-mono text-sm font-medium tabular-nums",
+            "text-sm font-semibold tabular-nums",
             ["text-gruv-accent-deep", "text-gruv-aqua", "text-gruv-purple"][
               index % 3
             ],

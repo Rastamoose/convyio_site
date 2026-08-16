@@ -45,14 +45,6 @@ const config: Config = {
           'Arial',
           'sans-serif',
         ],
-        mono: [
-          'var(--font-jetbrains)',
-          'ui-monospace',
-          'SFMono-Regular',
-          'Menlo',
-          'Consolas',
-          'monospace',
-        ],
       },
       boxShadow: {
         frame: 'var(--shadow-frame)',

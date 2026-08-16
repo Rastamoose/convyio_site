@@ -1,8 +1,8 @@
 {
   "lib/analytics.ts -> posthog-js": {
-    "id": "lib/analytics.ts -> posthog-js",
+    "id": 2477,
     "files": [
-      "static/chunks/_app-pages-browser_node_modules_posthog-js_dist_module_js.js"
+      "static/chunks/9da6db1e.b0c0734a5d5930d3.js"
     ]
   }
 }

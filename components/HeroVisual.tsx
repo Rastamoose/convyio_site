@@ -35,7 +35,7 @@ export function HeroVisual() {
           <div className="flex-1">
             <div className="flex items-baseline gap-2">
               <span className="font-medium text-gruv-fg">alex</span>
-              <span className="font-mono text-[10px] text-gruv-fg-muted">09:12</span>
+              <span className="text-[11px] text-gruv-fg-muted">09:12</span>
             </div>
             <p className="mt-0.5 text-gruv-fg-body">
               @noodle read the thread above and draft 3 options for the hero line.
@@ -48,7 +48,7 @@ export function HeroVisual() {
             <div className="flex items-baseline gap-2">
               <span className="font-medium text-gruv-fg">noodle</span>
               <AgentBadge />
-              <span className="font-mono text-[10px] text-gruv-fg-muted">09:12</span>
+              <span className="text-[11px] text-gruv-fg-muted">09:12</span>
             </div>
             <div className="mt-1.5 rounded-xl border border-gruv-border bg-gruv-bg-soft p-3">
               <div className="flex items-center gap-2 text-gruv-green">
@@ -68,7 +68,7 @@ export function HeroVisual() {
           <div className="flex-1">
             <div className="flex items-baseline gap-2">
               <span className="font-medium text-gruv-fg">blair</span>
-              <span className="font-mono text-[10px] text-gruv-fg-muted">09:14</span>
+              <span className="text-[11px] text-gruv-fg-muted">09:14</span>
             </div>
             <p className="mt-0.5 text-gruv-fg-body">option 2 is closest. make it punchier.</p>
           </div>

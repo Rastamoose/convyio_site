@@ -117,7 +117,7 @@ export function DemoSlot() {
             </svg>
           </span>
         </button>
-        <p className="mt-4 text-center font-mono text-xs text-gruv-fg-muted">{COPY.demo.caption}</p>
+        <p className="mt-4 text-center text-xs text-gruv-fg-muted">{COPY.demo.caption}</p>
       </div>
 
       {/* Lightbox */}

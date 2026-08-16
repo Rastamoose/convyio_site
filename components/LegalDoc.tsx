@@ -9,7 +9,7 @@ function Notice({ tone, label, text }: { tone: 'warn' | 'note'; label: string; t
       className={`my-6 border-2 border-l-8 border-gruv-border bg-gruv-bg px-5 py-4 ${accent}`}
     >
       <p
-        className={`font-mono text-[11px] font-semibold uppercase tracking-[0.12em] ${labelColor}`}
+        className={`text-xs font-semibold ${labelColor}`}
       >
         {label}
       </p>
@@ -28,7 +28,7 @@ function Table({ head, rows }: { head: string[]; rows: string[][] }) {
               <th
                 key={cell}
                 scope="col"
-                className="whitespace-nowrap px-4 py-3 font-mono text-[11px] font-semibold uppercase tracking-[0.1em] text-gruv-fg"
+                className="whitespace-nowrap px-4 py-3 text-xs font-semibold text-gruv-fg"
               >
                 {cell}
               </th>
@@ -86,7 +86,7 @@ function BlockView({ block }: { block: Block }) {
         <dl className="my-5 divide-y divide-gruv-border border-y border-gruv-border">
           {block.items.map((item) => (
             <div key={item.term} className="grid gap-1 py-3 sm:grid-cols-[11rem_1fr] sm:gap-4">
-              <dt className="font-mono text-xs uppercase tracking-[0.08em] text-gruv-fg-muted">
+              <dt className="text-xs font-medium text-gruv-fg-muted">
                 {item.term}
               </dt>
               <dd className="text-[15px] leading-relaxed text-gruv-fg-body">{item.text}</dd>
@@ -106,7 +106,7 @@ export function LegalDoc({ doc }: { doc: LegalDocument }) {
     <article className="px-4 pb-20 pt-10 sm:px-6 sm:pt-14 lg:px-8">
       <div className="mx-auto max-w-5xl">
         <header className="border-b-2 border-gruv-border pb-8">
-          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-gruv-fg-muted">
+          <p className="text-xs font-semibold text-gruv-fg-muted">
             convyio · legal
           </p>
           <h1 className="mt-3 text-3xl font-semibold leading-[1.1] tracking-[-0.03em] text-gruv-fg sm:text-4xl">
@@ -115,7 +115,7 @@ export function LegalDoc({ doc }: { doc: LegalDocument }) {
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-gruv-fg-body">
             {doc.standfirst}
           </p>
-          <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs text-gruv-fg-muted">
+          <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-gruv-fg-muted">
             <span>Last revised {doc.revised}</span>
             <a
               href={doc.counterpart.href}
@@ -129,7 +129,7 @@ export function LegalDoc({ doc }: { doc: LegalDocument }) {
         <div className="gap-12 pt-10 lg:grid lg:grid-cols-[15rem_minmax(0,1fr)]">
           <nav aria-label="On this page" className="mb-10 lg:mb-0">
             <div className="lg:sticky lg:top-28">
-              <p className="mb-3 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-gruv-fg-muted">
+              <p className="mb-3 text-xs font-semibold text-gruv-fg-muted">
                 On this page
               </p>
               <ol className="space-y-1.5">

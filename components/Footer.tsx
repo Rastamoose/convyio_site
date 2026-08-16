@@ -16,9 +16,9 @@ export function Footer() {
             {COPY.productName}
             <span className="text-gruv-accent">.</span>
           </a>
-          <p className="font-mono text-xs text-gruv-fg-muted">{COPY.footer}</p>
+          <p className="text-xs text-gruv-fg-muted">{COPY.footer}</p>
         </div>
-        <nav aria-label="Legal" className="flex items-center gap-3 font-mono text-xs">
+        <nav aria-label="Legal" className="flex items-center gap-3 text-xs">
           {LINKS.map((link, i) => (
             <span key={link.href} className="flex items-center gap-3">
               {i > 0 && (

@@ -38,7 +38,7 @@ function Message({
               agent
             </span>
           )}
-          <span className="font-mono text-[10px] text-gruv-fg-muted">{time}</span>
+          <span className="text-[11px] text-gruv-fg-muted">{time}</span>
         </div>
         <div className="mt-1 text-gruv-fg-body">{children}</div>
       </div>

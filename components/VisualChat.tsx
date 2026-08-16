@@ -34,7 +34,7 @@ export function VisualChat() {
           <div className="flex-1 space-y-1">
             <div className="flex items-baseline gap-2">
               <span className="font-medium text-gruv-fg">alex</span>
-              <span className="font-mono text-[10px] text-gruv-fg-muted">10:02 AM</span>
+              <span className="text-[11px] text-gruv-fg-muted">10:02 AM</span>
             </div>
             <p className="text-gruv-fg-body">
               the launch post needs a sharper one-liner. anyone want to take a swing?
@@ -46,7 +46,7 @@ export function VisualChat() {
           <div className="flex-1 space-y-1">
             <div className="flex items-baseline gap-2">
               <span className="font-medium text-gruv-fg">blair</span>
-              <span className="font-mono text-[10px] text-gruv-fg-muted">10:03 AM</span>
+              <span className="text-[11px] text-gruv-fg-muted">10:03 AM</span>
             </div>
             <p className="text-gruv-fg-body">
               i tried a few yesterday but they all sound like marketing. constraints: no buzzwords, no “platform”.
@@ -58,7 +58,7 @@ export function VisualChat() {
           <div className="flex-1 space-y-1">
             <div className="flex items-baseline gap-2">
               <span className="font-medium text-gruv-fg">sarah</span>
-              <span className="font-mono text-[10px] text-gruv-fg-muted">10:04 AM</span>
+              <span className="text-[11px] text-gruv-fg-muted">10:04 AM</span>
             </div>
             <p className="text-gruv-fg-body">
               @planner — can you draft options from the thread above? keep it under 10 words.

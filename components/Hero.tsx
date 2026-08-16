@@ -90,7 +90,7 @@ export function Hero({ variant = 'problem-aware' }: HeroProps) {
               </a>
             </div>
           </div>
-          <p className="mt-6 animate-fade-up font-mono text-sm tracking-wide text-gruv-fg-body [animation-delay:160ms]">
+          <p className="mt-6 animate-fade-up text-sm text-gruv-fg-body [animation-delay:160ms]">
             works with the agents you already run —{' '}
             <span className="font-medium text-gruv-accent-deep">Claude Code</span> ·{' '}
             <span className="font-medium text-gruv-green">Codex</span> ·{' '}
