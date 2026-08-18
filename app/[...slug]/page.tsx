@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 
 export function generateStaticParams() {
-  return [];
+  return [{ slug: ['_'] }];
 }
 
 export default function CatchAll() {
