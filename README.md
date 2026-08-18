@@ -64,7 +64,8 @@ vercel --prod dist/
 
 ## Notes
 
-- Copy is verbatim from the build brief. Replace `[NAME]` with `convyio`.
-- The hero H1 has an A/B variant at `/?v=2`.
+- Landing-page copy and product claims live in `lib/copy.ts`.
+- The solution-aware campaign variant lives at `/v2/` and canonicals to the homepage.
 - The demo slot is a screenshot-style mockup, not a video. A real screen recording can replace the mockup later.
-- `robots.txt` allows all crawlers. Update the sitemap URL before deploying.
+- `robots.txt` allows all crawlers and advertises the production sitemap.
+- Run `npm run check:seo` after `npm run build` to verify exported metadata, canonicals, robots directives, structured data, and sitemap URLs.

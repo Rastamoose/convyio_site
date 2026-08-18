@@ -5,6 +5,7 @@ import { FeedbackButton } from './FeedbackButton';
 
 const LINKS = [
   { href: APP_URL, label: 'Sign in' },
+  { href: '/about', label: 'About' },
   { href: '/privacy', label: 'Privacy' },
   { href: '/terms', label: 'Terms' },
   { href: `mailto:${LEGAL_CONTACT}`, label: 'Contact' },

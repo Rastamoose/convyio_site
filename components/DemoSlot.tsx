@@ -99,6 +99,14 @@ export function DemoSlot() {
       className="bg-gruv-bg-soft px-4 py-20 sm:px-6 sm:py-24 lg:px-8"
     >
       <div className="mx-auto max-w-6xl">
+        <div className="mb-10 text-center">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-gruv-accent-deep">
+            Product preview
+          </p>
+          <h2 className="text-3xl font-semibold tracking-[-0.02em] text-gruv-fg sm:text-4xl">
+            See a team and its AI agent work in one channel.
+          </h2>
+        </div>
         <button
           type="button"
           onClick={() => setOpen(true)}

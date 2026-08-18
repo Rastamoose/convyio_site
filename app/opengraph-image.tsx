@@ -43,7 +43,7 @@ export default function OpenGraphImage() {
             color: gruvboxLight.fg,
           }}
         >
-          Your team and its agents, in the same room.
+          AI team chat where people and agents work together.
         </div>
         <div
           style={{
@@ -54,7 +54,7 @@ export default function OpenGraphImage() {
             color: gruvboxLight.fgMuted,
           }}
         >
-          Start using Convyio
+          Shared channels · visible work · human approval
         </div>
       </div>
     ),
