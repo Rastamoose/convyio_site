@@ -15,12 +15,14 @@ export const metadata: Metadata = {
       'What convyio collects, why, who else sees it — including the AI providers behind the agents in your channels — and what you can ask us to do about it.',
     url: '/privacy',
     type: 'website',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Convyio' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Privacy Policy — convyio',
     description:
       'What convyio collects, why, who else sees it — including the AI providers behind the agents in your channels — and what you can ask us to do about it.',
+    images: ['/opengraph-image'],
   },
   robots: { index: true, follow: true },
 };

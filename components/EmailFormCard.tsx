@@ -27,7 +27,7 @@ export function EmailFormCard({
             Help shape Convyio
           </h2>
           <p className="mt-1 text-sm leading-relaxed text-gruv-fg-body">
-            Tell us a bit about your team and we&rsquo;ll get back to you.
+            Tell us about your team and we&rsquo;ll reply within two business days.
           </p>
         </div>
         {onClose && (

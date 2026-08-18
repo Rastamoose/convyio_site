@@ -1,4 +1,5 @@
 import type { Block, LegalDocument } from '@/lib/legal';
+import { Breadcrumbs } from './Breadcrumbs';
 
 function Notice({ tone, label, text }: { tone: 'warn' | 'note'; label: string; text: string }) {
   const accent = tone === 'warn' ? 'border-l-gruv-red' : 'border-l-gruv-blue';
@@ -105,6 +106,12 @@ export function LegalDoc({ doc }: { doc: LegalDocument }) {
   return (
     <article className="px-4 pb-20 pt-10 sm:px-6 sm:pt-14 lg:px-8">
       <div className="mx-auto max-w-5xl">
+        <Breadcrumbs
+          items={[
+            { label: 'Home', href: '/' },
+            { label: doc.title, href: `/${doc.slug}` },
+          ]}
+        />
         <header className="border-b-2 border-gruv-border pb-8">
           <p className="text-xs font-semibold text-gruv-fg-muted">
             convyio · legal

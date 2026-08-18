@@ -39,7 +39,7 @@ export function HomeStructuredData() {
         name: 'Convyio',
         url: `${url}/`,
         applicationCategory: 'BusinessApplication',
-        applicationSubCategory: 'AI team chat',
+        applicationSubCategory: 'Shared workspace for people and AI agents',
         operatingSystem: 'Web',
         description: COPY.meta.description,
         featureList: COPY.beats.map((beat) => beat.heading),

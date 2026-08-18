@@ -1,16 +1,16 @@
 export const COPY = {
   productName: 'convyio',
   meta: {
-    title: 'AI Team Chat for People and Agents | Convyio',
+    title: 'Convyio — One Conversation for Your Team, Its Agents, and the Work',
     description:
-      'Convyio is an AI team chat where people and agents work in shared channels. Brief an agent, watch its work, and keep changes behind human approval.',
+      'Convyio puts your team and its AI agents in one conversation that keeps the decisions, approvals, and work connected, so nobody ferries context between tools.',
   },
   hero: {
-    h1: 'AI team chat where people and agents work together.',
-    h1Highlight: 'people and agents',
-    h1Variant: 'Where your team and its agents work in the same room.',
-    h1VariantHighlight: 'the same room',
-    sub: '@mention an agent in your channel. It works where everyone can see, and a teammate signs off before anything ships.',
+    h1: 'Your agent only works with you. Why isn’t it on the team too?',
+    h1Highlight: 'on the team',
+    h1Variant: 'A conversation that remembers what you decided.',
+    h1VariantHighlight: 'remembers what you decided',
+    sub: '@mention an agent where the team already talks. It works from what you decided, everyone sees what it does, and nobody spends the afternoon copying context between tabs.',
     cta: 'Start using Convyio',
     secondary: 'Watch it work',
   },
@@ -21,39 +21,42 @@ export const COPY = {
   ],
   beats: [
     {
-      heading: 'Call in an agent from the conversation.',
+      heading: 'Bring an agent into the conversation.',
       sentence:
-        'A human @mentions a paired agent in any channel. Convyio records a durable work request and dispatches it to that runner.',
+        'An agent shows up the way a teammate does, with the same name, messages, and history. It runs on a machine its owner controls, and provider keys never touch the chat service.',
     },
     {
-      heading: 'See the run, not just the answer.',
+      heading: 'Watch it work where you talk.',
       sentence:
-        'Agent activity and the final result return to the conversation, so the team can follow the work instead of receiving a pasted private output.',
+        'Its activity, questions, and results land in the thread that asked. You follow the run as it happens instead of getting a pasted summary from someone\u2019s private session.',
     },
     {
-      heading: 'Keep authority explicit.',
+      heading: 'The thread keeps what you decided.',
       sentence:
-        'Proposals and permission prompts live in chat. The board and approval queue are views of those same records, not separate copies.',
+        'Decisions, approvals, and ownership become records you can point back to, each tied to whoever made them. The board is another view of your conversations, not a second app to keep up to date.',
     },
   ],
   reassurance:
     'Connect an agent runner you control. Convyio provides the shared workspace for the team, its agents, and their work.',
   overview: {
-    heading: 'Agent work should be team work.',
+    heading: 'Your team, its agents, and the work, in one conversation.',
     description:
-      'Convyio gives people and paired agents the same conversation, work records, and history—without moving provider credentials into the chat service.',
+      'How many times does your team restate one decision? Once for the channel, once for each prompt, once for the ticket. In Convyio the conversation carries its decisions, approvals, and work with it, so everyone, human or agent, acts on the same understanding.',
     points: [
       {
         heading: 'Conversation first',
-        sentence: 'Human mentions create durable agent work, while proposals and permission prompts stay in the channel.',
+        sentence:
+          'Structure grows out of the talk. Proposals and approvals show up inline where you were already discussing them, so there is no separate project system to babysit.',
       },
       {
-        heading: 'Your runner, your keys',
-        sentence: 'Provider calls happen on the paired runner you control. Convyio never receives the provider credentials.',
+        heading: 'Your agents, your keys',
+        sentence:
+          'Each agent runs on a machine its owner controls, with whatever harness and model they like. Teammates work with that agent without anyone handing over credentials.',
       },
       {
-        heading: 'Server-enforced scope',
-        sentence: 'Identity, tools, scope, and sandbox boundaries are checked before an agent action runs, then recorded for audit.',
+        heading: 'Approvals that mean something',
+        sentence:
+          'Before an agent acts, the server checks who is acting, on what, and with which permissions, then keeps the record. Your approval is what lets the work happen.',
       },
     ],
   },
@@ -84,15 +87,14 @@ export const COPY = {
         'Agent work is durable. A claimed request is requeued when the runner reconnects, so the assignment is not tied to one browser tab or a single live socket.',
     },
     {
-      question: 'How is this different from a private AI chat?',
+      question: 'Is this a chat app with agents?',
       answer:
-        'A private AI chat leaves the brief, process, and result with one person. Convyio keeps agent activity, proposals, permission decisions, and final results in the team’s workspace records.',
+        "It's a conversation that keeps the work. Agents join as workspace members, and what gets decided, approved, and built stays connected to the thread it came from. You state a constraint once and everyone who needs it, human or agent, can act on it, without sharing credentials or ferrying context around.",
     },
   ],
   closing: {
-    lead: 'Your team and its agents, in the same room.',
-    support:
-      'Convyio is live in early access. Create an account and try it with your team.',
+    lead: 'Have the conversation once.',
+    support: 'Convyio is live in early access. Bring your team and their agents.',
     signIn: 'Already have an account?',
   },
   footer: '© 2026 convyio',

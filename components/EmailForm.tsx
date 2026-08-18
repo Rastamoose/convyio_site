@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, FormEvent } from "react";
+import { useRouter } from "next/navigation";
 import { COPY } from "@/lib/copy";
 import { ANALYTICS_EVENTS } from "@/lib/posthog";
 import { cn } from "@/lib/utils";
@@ -89,6 +90,7 @@ function FieldLabel({
 }
 
 export function EmailForm({ location, className }: EmailFormProps) {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [agents, setAgents] = useState<string[]>([]);
   const [agentOther, setAgentOther] = useState("");
@@ -170,6 +172,7 @@ export function EmailForm({ location, className }: EmailFormProps) {
         team_chat: teamChat,
       });
       setStatus("success");
+      router.push("/thank-you/");
     } catch (err) {
       setStatus("idle");
       const message =

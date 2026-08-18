@@ -36,7 +36,7 @@ export function FAQSection() {
             FAQ.
           </h2>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-gruv-fg-body">
-            Still looking for something?{' '}
+            Still looking for something? We reply within two business days.{' '}
             <a
               href={`mailto:${LEGAL_CONTACT}`}
               className="font-semibold text-gruv-accent-deep underline decoration-gruv-accent-deep underline-offset-4"

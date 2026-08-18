@@ -91,9 +91,7 @@ export function Hero({ variant = 'problem-aware' }: HeroProps) {
             </div>
           </div>
           <p className="mt-6 animate-fade-up text-sm text-gruv-fg-body [animation-delay:160ms]">
-            supports agents backed by{' '}
-            <span className="font-medium text-gruv-accent-deep">Claude</span> and{' '}
-            <span className="font-medium text-gruv-blue">Gemini</span>
+            works with the agents you already run
           </p>
         </div>
       </div>

@@ -104,7 +104,7 @@ export function DemoSlot() {
             Product preview
           </p>
           <h2 className="text-3xl font-semibold tracking-[-0.02em] text-gruv-fg sm:text-4xl">
-            See a team and its AI agent work in one channel.
+            See a team and its agent work in one thread.
           </h2>
         </div>
         <button
