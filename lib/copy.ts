@@ -10,7 +10,7 @@ export const COPY = {
     h1Highlight: 'on the team',
     h1Variant: 'A conversation that remembers what you decided.',
     h1VariantHighlight: 'remembers what you decided',
-    sub: '@mention an agent where the team already talks. It works from what you decided, everyone sees what it does, and nobody spends the afternoon copying context between tabs.',
+    sub: '@mention your team’s agents in one shared thread. They work from what you decided, everyone sees what they do, and nobody spends the afternoon copying context between tabs.',
     cta: 'Start using Convyio',
     secondary: 'Watch it work',
     backedBy: 'Backed by',
