@@ -7,7 +7,7 @@ const getMeta = (html, name) =>
 const getCanonical = (html) => html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
 const getTitle = (html) => html.match(/<title>(.*?)<\/title>/)?.[1];
 
-const [home, v2, about, privacy, terms, thankYou, notFound, robots, sitemap] =
+const [home, v2, about, privacy, terms, thankYou, notFound, robots, sitemap, ...guidePages] =
   await Promise.all([
     read('./dist/index.html'),
     read('./dist/v2/index.html'),
@@ -18,15 +18,24 @@ const [home, v2, about, privacy, terms, thankYou, notFound, robots, sitemap] =
     read('./dist/404.html'),
     read('./dist/robots.txt'),
     read('./dist/sitemap.xml'),
+    read('./dist/agents/index.html'),
+    read('./dist/keys/index.html'),
+    read('./dist/approvals/index.html'),
+    read('./dist/changelog/index.html'),
   ]);
 
-assert.match(home, /<title>AI Team Chat for People and Agents \| Convyio<\/title>/);
-assert.match(home, /<meta name="description" content="Convyio is an AI team chat/);
+assert.match(home, /<link rel="icon" href="\/favicon\.ico" sizes="any"/);
+assert.match(home, /<link rel="icon" href="\/favicon-48x48\.png" type="image\/png" sizes="48x48"/);
+assert.match(
+  home,
+  /<title>Convyio — One Conversation for Your Team, Its Agents, and the Work<\/title>/
+);
+assert.match(home, /<meta name="description" content="Convyio puts your team/);
 assert.equal(getCanonical(home), 'https://convyio.com/');
 assert.equal(getMeta(home, 'robots'), 'index, follow');
 assert.equal((home.match(/<h1(?:\s|>)/g) || []).length, 1);
 const h1 = home.match(/<h1[^>]*>(.*?)<\/h1>/s)?.[1].replace(/<[^>]+>/g, '');
-assert.equal(h1, 'AI team chat where people and agents work together.');
+assert.equal(h1, 'Your agent only works with you. Why isn’t it on the team too?');
 assert.match(home, /<header class="sticky/);
 assert.match(home, /href="https:\/\/app\.convyio\.com\/\?signup" class="btn-3d/);
 assert.match(home, /href="\/#how-it-works"/);
@@ -61,6 +70,45 @@ for (const page of [home, about, privacy, terms]) {
 for (const page of [about, privacy, terms]) assert.match(page, /"@type":"BreadcrumbList"/);
 assert.match(about, /reply within two business days/);
 
+const guides = [
+  { slug: 'agents', title: 'Agents as team members | Convyio', h1: 'An agent on the team, not in a tab.' },
+  { slug: 'keys', title: 'Your agents, your keys | Convyio', h1: 'Provider keys never leave your runner.' },
+  {
+    slug: 'approvals',
+    title: 'Human approval for agent actions | Convyio',
+    h1: 'Nothing mutates until a human says so.',
+  },
+  {
+    slug: 'changelog',
+    title: 'Changelog | Convyio',
+    h1: 'What’s live, what’s rough, who it’s for.',
+  },
+];
+
+guidePages.forEach((page, i) => {
+  const { slug, title, h1: guideH1 } = guides[i];
+  assert.equal(getTitle(page), title);
+  assert.equal(getCanonical(page), `https://convyio.com/${slug}/`);
+  assert.equal(getMeta(page, 'robots'), 'index, follow');
+  assert.ok(getMeta(page, 'description'), `Guide /${slug} needs a meta description`);
+  assert.match(page, /<meta property="og:image"/);
+  assert.match(page, /<meta name="twitter:image"/);
+  assert.equal((page.match(/<h1(?:\s|>)/g) || []).length, 1, `Guide /${slug} needs exactly one h1`);
+  const pageH1 = page.match(/<h1[^>]*>(.*?)<\/h1>/s)?.[1].replace(/<[^>]+>/g, '');
+  assert.equal(pageH1, guideH1);
+  assert.match(page, /"@type":"BreadcrumbList"/);
+  for (const other of guides.filter((g) => g.slug !== slug)) {
+    assert.ok(
+      page.includes(`href="/${other.slug}"`),
+      `Guide /${slug} should link to /${other.slug}`
+    );
+  }
+});
+for (const { slug } of guides) {
+  assert.ok(home.includes(`href="/${slug}"`), `Homepage should link to /${slug}`);
+  assert.ok(about.includes(`href="/${slug}"`), `About should link to /${slug}`);
+}
+
 assert.equal(getTitle(thankYou), 'Thank You | Convyio');
 assert.equal(getMeta(thankYou, 'robots'), 'noindex, follow');
 assert.equal(getCanonical(thankYou), 'https://convyio.com/thank-you/');
@@ -79,6 +127,10 @@ assert.deepEqual(
   [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]),
   [
     'https://convyio.com/',
+    'https://convyio.com/agents/',
+    'https://convyio.com/keys/',
+    'https://convyio.com/approvals/',
+    'https://convyio.com/changelog/',
     'https://convyio.com/about/',
     'https://convyio.com/privacy/',
     'https://convyio.com/terms/',

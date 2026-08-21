@@ -2,6 +2,7 @@
 
 import { useId, useState } from 'react';
 import { COPY } from '@/lib/copy';
+import { GUIDES } from '@/lib/guides';
 import { LEGAL_CONTACT } from '@/lib/legal';
 
 export function FAQSection() {
@@ -21,11 +22,11 @@ export function FAQSection() {
           <div className="mb-4 inline-flex -rotate-1 items-center gap-2 rounded-lg border-2 border-gruv-border bg-gruv-bg px-3 py-2 shadow-[0_3px_0_0_rgb(var(--gruv-border))]">
             <span
               aria-hidden="true"
-              className="flex h-6 w-6 items-center justify-center rounded-md bg-gruv-accent font-mono text-sm font-bold text-gruv-bg-hard"
+              className="flex h-6 w-6 items-center justify-center rounded-md bg-gruv-accent text-sm font-bold text-gruv-bg-hard"
             >
               ?
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-gruv-fg-body">
+            <span className="text-xs font-semibold uppercase tracking-[0.14em] text-gruv-fg-body">
               Questions, answered
             </span>
           </div>
@@ -44,6 +45,23 @@ export function FAQSection() {
               Talk to us.
             </a>
           </p>
+          <div className="mt-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gruv-fg-muted">
+              Read the mechanics
+            </p>
+            <ul className="mt-3 space-y-2">
+              {GUIDES.map((guide) => (
+                <li key={guide.slug}>
+                  <a
+                    href={`/${guide.slug}`}
+                    className="text-sm font-medium text-gruv-accent-deep underline decoration-transparent underline-offset-4 transition-colors hover:decoration-gruv-accent-deep"
+                  >
+                    {guide.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className="grid items-start gap-3 md:grid-cols-2 md:gap-4">

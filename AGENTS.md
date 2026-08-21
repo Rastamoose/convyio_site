@@ -33,3 +33,11 @@ Do not use translucent/alpha-tone utility classes for background fills, borders,
 ### Why
 
 The site is built around a paper-like Gruvbox palette. Transparent tints look out of place and reduce contrast consistency across light/dark modes.
+
+## Typography: no mono font
+
+Do not use `font-mono` anywhere on the site — no mono micro-labels, chips, or numerals (it reads as vibecodey here). Micro-labels are sans: `text-[11px]/text-xs font-semibold uppercase tracking-[0.14em]`. Numerals use `tabular-nums` in sans. (The app repo's `AGENTS/DESIGN.md` mono rules govern the client, not this site.)
+
+## Surfaces vs pressables
+
+Flat means no border and no shadow. Panes (menus, dropdowns, panels, content cards) separate by tonal step only — `bg-gruv-bg` / `bg-gruv-bg-soft` against the page, hover by fill-step. The 3D block (`border-2` + ledge shadow + translate-on-press) is reserved for actions: `btn-3d`, `btn-raised`, and established pressables like the FAQ accordion. Do not put it on nav cards, menus, or content panels — if everything is a 3D block, nothing is.

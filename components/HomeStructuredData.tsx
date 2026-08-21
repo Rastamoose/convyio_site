@@ -43,6 +43,7 @@ export function HomeStructuredData() {
         operatingSystem: 'Web',
         description: COPY.meta.description,
         featureList: COPY.beats.map((beat) => beat.heading),
+        offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' },
         publisher: { '@id': `${url}/#organization` },
       },
       {

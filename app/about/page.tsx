@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
+import { GUIDES } from '@/lib/guides';
 import { LEGAL_CONTACT } from '@/lib/legal';
 
 export const metadata: Metadata = {
@@ -86,6 +87,40 @@ export default function AboutPage() {
                   <h3 className="text-lg font-semibold text-gruv-fg">{principle.heading}</h3>
                   <p className="mt-2 leading-relaxed text-gruv-fg-body">{principle.text}</p>
                 </div>
+              ))}
+            </div>
+          </section>
+          <section className="mt-16" aria-labelledby="guides-heading">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-gruv-fg-muted">
+              Guides
+            </p>
+            <h2
+              id="guides-heading"
+              className="text-2xl font-semibold tracking-[-0.02em] text-gruv-fg sm:text-3xl"
+            >
+              How it works, in detail
+            </h2>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {GUIDES.map((guide) => (
+                <a
+                  key={guide.slug}
+                  href={`/${guide.slug}`}
+                  className="group rounded-xl bg-gruv-bg p-6 transition-colors hover:bg-gruv-bg-soft"
+                >
+                  <h3 className="text-lg font-semibold text-gruv-fg transition-colors group-hover:text-gruv-accent-deep">
+                    {guide.label}
+                  </h3>
+                  <p className="mt-3 leading-relaxed text-gruv-fg-body">{guide.teaser}</p>
+                  <p className="mt-4 text-sm font-semibold text-gruv-accent-deep">
+                    Read{' '}
+                    <span
+                      aria-hidden="true"
+                      className="inline-block transition-transform group-hover:translate-x-0.5"
+                    >
+                      →
+                    </span>
+                  </p>
+                </a>
               ))}
             </div>
           </section>

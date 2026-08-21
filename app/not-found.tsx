@@ -15,7 +15,7 @@ export default function NotFound() {
       <section className="flex flex-1 items-center px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto grid w-full max-w-5xl items-center gap-12 lg:grid-cols-2">
           <div>
-            <p className="font-mono text-sm font-semibold text-gruv-accent-deep">404</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-gruv-accent-deep">404</p>
             <h1 className="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-gruv-fg sm:text-5xl">
               This channel doesn’t exist.
             </h1>
@@ -40,7 +40,7 @@ export default function NotFound() {
               <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-3xl bg-gruv-accent text-5xl font-semibold text-gruv-bg-hard">
                 ?
               </div>
-              <p className="mt-6 font-mono text-sm text-gruv-fg-muted">#unknown-channel</p>
+              <p className="mt-6 text-sm font-medium text-gruv-fg-muted">#unknown-channel</p>
             </div>
           </div>
         </div>

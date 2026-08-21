@@ -9,7 +9,7 @@ export function OverviewSection() {
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-24">
           <div>
-            <p className="mb-6 font-mono text-xs uppercase tracking-[0.18em] text-gruv-fg-muted">
+            <p className="mb-6 text-xs font-semibold uppercase tracking-[0.18em] text-gruv-fg-muted">
               Why Convyio
             </p>
             <h2
@@ -29,7 +29,7 @@ export function OverviewSection() {
                   key={point.heading}
                   className="grid gap-3 border-b border-gruv-border py-7 sm:grid-cols-[2.5rem_10rem_1fr] sm:gap-5"
                 >
-                  <span className="font-mono text-xs text-gruv-fg-muted">
+                  <span className="text-xs font-semibold tabular-nums text-gruv-fg-muted">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   <h3 className="font-semibold text-gruv-fg">{point.heading}</h3>
