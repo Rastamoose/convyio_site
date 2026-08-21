@@ -1,6 +1,7 @@
 import { COPY } from '@/lib/copy';
 import { VariantTag } from './VariantTag';
 import { StartUsingLink } from './AppLink';
+import { ClaudeMark, CodexMark, DevinMark } from './AgentMarks';
 
 interface HeroProps {
   variant?: 'problem-aware' | 'solution-aware';
@@ -45,7 +46,7 @@ export function Hero({ variant = 'problem-aware' }: HeroProps) {
   const highlight = solutionAware ? COPY.hero.h1VariantHighlight : COPY.hero.h1Highlight;
 
   return (
-    <section className="relative px-4 pb-10 pt-12 sm:px-6 sm:pb-12 sm:pt-16 lg:px-8 lg:pt-20">
+    <section className="relative px-4 pb-10 pt-10 sm:px-6 sm:pb-12 sm:pt-12 lg:px-8 lg:pt-16">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
           className="absolute inset-0 opacity-90"
@@ -62,6 +63,25 @@ export function Hero({ variant = 'problem-aware' }: HeroProps) {
       <VariantTag variant={variant} />
       <div className="mx-auto max-w-5xl">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+          <a
+            href="https://redwoodfounders.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mb-8 inline-flex animate-fade-up items-center gap-2.5 rounded-full bg-gruv-bg px-4 py-2 transition-colors hover:bg-gruv-bg-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-gruv-accent"
+          >
+            <img
+              src="/redwood-founders.jpg"
+              alt=""
+              aria-hidden="true"
+              width={200}
+              height={200}
+              className="h-6 w-6 rounded-md"
+            />
+            <span className="text-sm text-gruv-fg-body">
+              {COPY.hero.backedBy}{' '}
+              <span className="font-semibold text-gruv-fg">Redwood Founders</span>
+            </span>
+          </a>
           <h1 className="mb-6 text-4xl font-semibold leading-[1.08] tracking-[-0.03em] text-gruv-fg sm:text-5xl lg:text-6xl">
             {renderH1(h1, highlight)}
           </h1>
@@ -90,8 +110,20 @@ export function Hero({ variant = 'problem-aware' }: HeroProps) {
               </a>
             </div>
           </div>
-          <p className="mt-6 animate-fade-up text-sm text-gruv-fg-body [animation-delay:160ms]">
+          <p className="mt-6 flex animate-fade-up items-center justify-center gap-2.5 text-base text-gruv-fg-body [animation-delay:160ms]">
             works with the agents you already run
+            <span
+              className="flex items-center gap-2"
+              role="img"
+              aria-label="Claude, Codex, and Devin"
+            >
+              <span aria-hidden="true" className="text-gruv-fg-muted">·</span>
+              <ClaudeMark className="h-5 w-5 text-[#D97757]" />
+              <span aria-hidden="true" className="text-gruv-fg-muted">·</span>
+              <CodexMark className="h-5 w-5 text-gruv-fg" />
+              <span aria-hidden="true" className="text-gruv-fg-muted">·</span>
+              <DevinMark className="h-5 w-5 text-gruv-fg" />
+            </span>
           </p>
         </div>
       </div>

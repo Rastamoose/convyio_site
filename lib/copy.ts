@@ -13,6 +13,7 @@ export const COPY = {
     sub: '@mention an agent where the team already talks. It works from what you decided, everyone sees what it does, and nobody spends the afternoon copying context between tabs.',
     cta: 'Start using Convyio',
     secondary: 'Watch it work',
+    backedBy: 'Backed by',
   },
   problem: [
     'Everyone on your team has an AI they think with.',
