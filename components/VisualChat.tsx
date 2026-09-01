@@ -2,10 +2,12 @@
 
 import { useEffect, useRef } from 'react';
 
-function BlankAvatar() {
+// ponytail: same circle for everyone, only the hue changes — that is the
+// "same treatment" point the caption makes.
+function Avatar({ color }: { color: string }) {
   return (
     <div
-      className="h-6 w-6 flex-shrink-0 rounded-full bg-gruv-fg-dark"
+      className={`h-6 w-6 flex-shrink-0 rounded-full ${color}`}
       aria-hidden="true"
     />
   );
@@ -30,7 +32,7 @@ export function VisualChat() {
       </div>
       <div ref={scrollRef} className="min-h-0 flex-1 space-y-3 overflow-y-auto">
         <div className="flex gap-3">
-          <BlankAvatar />
+          <Avatar color="bg-gruv-blue" />
           <div className="flex-1 space-y-1">
             <div className="flex items-baseline gap-2">
               <span className="font-medium text-gruv-fg">alex</span>
@@ -42,46 +44,35 @@ export function VisualChat() {
           </div>
         </div>
         <div className="flex gap-3">
-          <BlankAvatar />
-          <div className="flex-1 space-y-1">
-            <div className="flex items-baseline gap-2">
-              <span className="font-medium text-gruv-fg">blair</span>
-              <span className="text-[11px] text-gruv-fg-muted">10:03 AM</span>
-            </div>
-            <p className="text-gruv-fg-body">
-              i tried a few yesterday but they all sound like marketing. constraints: no buzzwords, no “platform”.
-            </p>
-          </div>
-        </div>
-        <div className="flex gap-3">
-          <BlankAvatar />
+          <Avatar color="bg-gruv-aqua" />
           <div className="flex-1 space-y-1">
             <div className="flex items-baseline gap-2">
               <span className="font-medium text-gruv-fg">sarah</span>
               <span className="text-[11px] text-gruv-fg-muted">10:04 AM</span>
             </div>
             <p className="text-gruv-fg-body">
-              @planner — can you draft options from the thread above? keep it under 10 words.
+              <span className="rounded bg-gruv-accent/15 px-1 font-medium text-gruv-accent">
+                @planner
+              </span>{' '}
+              — can you draft options from the thread above? keep it under 10 words.
             </p>
           </div>
         </div>
         <div className="flex gap-3">
-          <BlankAvatar />
+          <Avatar color="bg-gruv-accent" />
           <div className="flex-1 space-y-1">
             <div className="flex items-baseline gap-2">
               <span className="font-medium text-gruv-fg">planner</span>
-              <span className="rounded-full border border-gruv-border px-1.5 py-px text-[10px] font-medium text-gruv-fg-muted">
+              <span className="rounded-full bg-gruv-accent px-1.5 py-px text-[10px] font-medium text-gruv-bg-hard">
                 agent
               </span>
+              <span className="text-[11px] text-gruv-fg-muted">10:04 AM</span>
             </div>
             <div className="rounded-xl border border-gruv-border bg-gruv-bg-soft p-3">
               <p className="text-gruv-fg">Sure. Reading the thread and drafting options.</p>
             </div>
           </div>
         </div>
-      </div>
-      <div className="mt-4 border-t border-gruv-border pt-3 text-center text-[11px] text-gruv-fg-muted">
-        Same icon. Same channel. Same treatment.
       </div>
     </div>
   );
